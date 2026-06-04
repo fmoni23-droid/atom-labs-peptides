@@ -297,6 +297,7 @@ const checkoutJump = document.querySelector("#checkoutJump");
 const checkoutSummary = document.querySelector("#checkoutSummary");
 const checkoutForm = document.querySelector("#checkoutForm");
 const formNote = document.querySelector("#formNote");
+const checkoutButton = checkoutForm.querySelector(".checkout-button");
 
 const money = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -431,6 +432,7 @@ function addToCart(productId) {
   const product = products.find((item) => item.id === productId);
   const sizeControl = document.querySelector(`[data-size-for="${productId}"]`);
   const selectedSize = sizeControl ? sizeControl.value : product.sizes[0];
+  const stripePriceId = product.stripePrices ? product.stripePrices[selectedSize] : "";
   const key = itemKey(productId, selectedSize);
   const existing = cart.get(key);
 
@@ -441,6 +443,7 @@ function addToCart(productId) {
     category: product.category,
     size: selectedSize,
     price: product.prices[selectedSize],
+    stripePriceId,
     quantity: existing ? existing.quantity + 1 : 1
   });
 
@@ -487,7 +490,7 @@ cartClose.addEventListener("click", () => setCartOpen(false));
 overlay.addEventListener("click", () => setCartOpen(false));
 checkoutJump.addEventListener("click", () => setCartOpen(false));
 
-checkoutForm.addEventListener("submit", (event) => {
+checkoutForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   if (cart.size === 0) {
@@ -495,7 +498,45 @@ checkoutForm.addEventListener("submit", (event) => {
     return;
   }
 
-  formNote.textContent = "Order details are ready. Connect a hosted payment processor to complete payment securely.";
+  const entries = Array.from(cart.values());
+  const missingStripeItem = entries.find((item) => !item.stripePriceId);
+  if (missingStripeItem) {
+    formNote.textContent = `${missingStripeItem.name} ${missingStripeItem.size} is not connected to Stripe yet.`;
+    return;
+  }
+
+  const formData = new FormData(checkoutForm);
+  const payload = {
+    customer: {
+      name: String(formData.get("name") || ""),
+      email: String(formData.get("email") || "")
+    },
+    items: entries.map((item) => ({
+      priceId: item.stripePriceId,
+      quantity: item.quantity
+    }))
+  };
+
+  checkoutButton.disabled = true;
+  formNote.textContent = "Opening secure Stripe checkout...";
+
+  try {
+    const response = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+
+    if (!response.ok || !data.url) {
+      throw new Error(data.error || "Checkout could not start.");
+    }
+
+    window.location.href = data.url;
+  } catch (error) {
+    formNote.textContent = error.message || "Checkout could not start. Please try again.";
+    checkoutButton.disabled = false;
+  }
 });
 
 renderCategoryTabs();

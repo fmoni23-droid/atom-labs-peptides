@@ -875,6 +875,41 @@ input:focus {
   display: block;
 }
 
+.checkout-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.success-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(28px, 5vw, 70px);
+  background:
+    linear-gradient(180deg, rgba(247, 250, 249, 0.92), rgba(239, 246, 245, 0.98)),
+    url("assets/atomlabs-logo.png") center / min(760px, 86vw) no-repeat;
+}
+
+.success-card {
+  width: min(680px, 100%);
+  padding: clamp(26px, 5vw, 48px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.success-card h1 {
+  margin-bottom: 16px;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+}
+
+.success-card p:not(.eyebrow) {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
 @media (max-width: 920px) {
   .nav-links {
     display: none;
