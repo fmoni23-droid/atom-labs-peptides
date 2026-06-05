@@ -1,44 +1,44 @@
 const categories = [
   {
-    id: "weight-management",
-    name: "Weight Management",
-    summary: "Research catalog grouping for incretin-pathway and metabolic-signaling peptides.",
+    id: "metabolic-signaling",
+    name: "Metabolic Signaling",
+    summary: "Research catalog grouping for incretin-pathway and metabolic-signaling compounds.",
     items: ["GLP3 RT", "GLP2 TZ", "GLP1 SM"]
   },
   {
-    id: "growth-hormone-recovery",
-    name: "Growth Hormone & Recovery",
-    summary: "Peptides commonly organized around endocrine signaling and recovery-model research.",
+    id: "endocrine-signaling",
+    name: "Endocrine Signaling",
+    summary: "Reference materials organized for controlled endocrine-signaling research models.",
     items: ["CJC1295 No DAC", "CJC1295 With DAC", "Ipamorelin", "CJC1295 No DAC + Ipamorelin", "Tesamorelin", "IGF1-LR3"]
   },
   {
-    id: "recovery-repair",
-    name: "Recovery & Repair",
-    summary: "Research-only peptides and blends associated with tissue, repair, and cell-signaling models.",
+    id: "cellular-signaling",
+    name: "Cellular Signaling",
+    summary: "Reference materials organized for controlled cellular-signaling research models.",
     items: ["BPC157", "TB-500", "BPC157 + TB-500"]
   },
   {
-    id: "cognitive-support",
-    name: "Cognitive Support",
-    summary: "Peptides grouped for neurochemical, behavioral, and cognition-adjacent research models.",
+    id: "neurochemical-research",
+    name: "Neurochemical Research",
+    summary: "Reference materials organized for controlled neurochemical research models.",
     items: ["Semax", "Selank"]
   },
   {
     id: "cellular-mitochondrial",
-    name: "Cellular & Mitochondrial Support",
+    name: "Mitochondrial Research",
     summary: "Catalog grouping for mitochondrial, cellular-energy, and oxidative-stress research themes.",
     items: ["SS31", "MOTS-c", "NAD+"]
   },
   {
-    id: "wellness-beauty",
-    name: "Wellness & Beauty",
-    summary: "Research and cosmetic-adjacent catalog items focused on appearance, pigment, and antioxidant themes.",
+    id: "analytical-reference",
+    name: "Analytical & Reference Compounds",
+    summary: "Analytical materials and reference compounds listed for controlled laboratory research.",
     items: ["GHK-Cu", "Glutathione", "Melanotan 2", "GLOW", "KLOW"]
   },
   {
     id: "supplies",
-    name: "Supplies",
-    summary: "Supporting lab supplies listed separately from peptide compounds.",
+    name: "Laboratory Supplies",
+    summary: "Supporting lab supplies listed separately from research compounds.",
     items: ["BAC Water"]
   }
 ];
@@ -47,167 +47,167 @@ const products = [
   {
     id: "glp3-rt",
     name: "GLP3 RT",
-    category: "Weight Management",
+    category: "Metabolic Signaling",
     image: "assets/products/glp3-rt.jpg",
     sizes: ["10mg", "20mg"],
     prices: { "10mg": 118.50, "20mg": 157.50 },
     stripePrices: { "10mg": "price_1TebX7082HX8pjNo8xZBzGET", "20mg": "price_1TebY0082HX8pjNoEWm9gkOs" },
-    description: "Catalog item for incretin-pathway research with a weight-management theme. Keep documentation focused on identity, purity, lot number, and storage."
+    description: "Research reference material cataloged for controlled incretin-pathway studies. Documentation focuses on identity, vial size, lot information, and storage."
   },
   {
     id: "glp2-tz",
     name: "GLP2 TZ",
-    category: "Weight Management",
+    category: "Metabolic Signaling",
     image: "assets/products/glp2-tz.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 112.00, "10mg": 151.00 },
     stripePrices: { "5mg": "price_1TebYa082HX8pjNoHJRzgAkl", "10mg": "price_1TebZ5082HX8pjNokqGt8eZp" },
-    description: "Metabolic-signaling catalog item positioned for research settings. Product copy should avoid human-use outcomes and emphasize lab documentation."
+    description: "Research reference material cataloged for controlled metabolic-signaling studies, with laboratory documentation and handling information."
   },
   {
     id: "glp1-sm",
     name: "GLP1 SM",
-    category: "Weight Management",
+    category: "Metabolic Signaling",
     image: "assets/products/glp1-sm.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 105.50 },
     stripePrices: { "5mg": "price_1TebZu082HX8pjNo8jsNVLGP" },
-    description: "GLP-themed research peptide listing for metabolic model work. Present as research material only, with size, lot, and handling details."
+    description: "Research reference material cataloged for controlled GLP-pathway model work, with vial size, lot, and handling details."
   },
   {
     id: "cjc1295-no-dac",
     name: "CJC1295 No DAC",
-    category: "Growth Hormone & Recovery",
+    category: "Endocrine Signaling",
     image: "assets/products/cjc1295-no-dac.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
     stripePrices: { "5mg": "price_1TeREt082HX8pjNokl3ghlAY" },
-    description: "Synthetic GHRH analog commonly discussed in endocrine research contexts. Avoid performance, body-composition, dosing, or administration claims."
+    description: "Synthetic GHRH analog cataloged as a reference material for controlled endocrine-signaling research."
   },
   {
     id: "cjc1295-with-dac",
     name: "CJC1295 With DAC",
-    category: "Growth Hormone & Recovery",
+    category: "Endocrine Signaling",
     image: "assets/products/cjc1295-with-dac.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
     stripePrices: { "5mg": "price_1TeT1b082HX8pjNov9eMaXiQ" },
-    description: "DAC-modified CJC1295 listing for longer-acting analog research discussions. Keep copy factual and separate from any therapeutic positioning."
+    description: "DAC-modified CJC1295 cataloged as a reference material for controlled analog and endocrine-signaling research."
   },
   {
     id: "ipamorelin",
     name: "Ipamorelin",
-    category: "Growth Hormone & Recovery",
+    category: "Endocrine Signaling",
     image: "assets/products/ipamorelin.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
     stripePrices: { "5mg": "price_1TeRGq082HX8pjNosOHqtrAE" },
-    description: "Synthetic pentapeptide studied in ghrelin-receptor and growth-hormone signaling research. No dosing or cycling instructions are included."
+    description: "Synthetic reference compound cataloged for controlled ghrelin-receptor and endocrine-signaling research."
   },
   {
     id: "cjc1295-ipamorelin",
     name: "CJC1295 No DAC + Ipamorelin",
-    category: "Growth Hormone & Recovery",
+    category: "Endocrine Signaling",
     image: "assets/products/cjc1295-ipamorelin.jpg",
     sizes: ["5mg/5mg"],
     prices: { "5mg/5mg": 112.00 },
     stripePrices: { "5mg/5mg": "price_1TeRHN082HX8pjNovMm1QuKG" },
-    description: "Two-compound blend organized for endocrine-pathway research. Display blend composition clearly and avoid implied medical or athletic outcomes."
+    description: "Two-compound reference blend cataloged for controlled endocrine-pathway research. Blend composition is listed by vial size."
   },
   {
     id: "tesamorelin",
     name: "Tesamorelin",
-    category: "Growth Hormone & Recovery",
+    category: "Endocrine Signaling",
     image: "assets/products/tesamorelin.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 118.50 },
     stripePrices: { "10mg": "price_1TeRHk082HX8pjNoPVd88Ljh" },
-    description: "Synthetic GHRH analog listed for controlled research and reference contexts. Product page should show testing, purity, and handling information."
+    description: "Synthetic GHRH analog listed as a reference material for controlled laboratory research, with handling and vial information."
   },
   {
     id: "igf1-lr3",
     name: "IGF1-LR3",
-    category: "Growth Hormone & Recovery",
+    category: "Endocrine Signaling",
     image: "assets/products/igf1-lr3.jpg",
     sizes: ["1mg"],
     prices: { "1mg": 118.50 },
     stripePrices: { "1mg": "price_1TeRI9082HX8pjNoezDJLpw5" },
-    description: "IGF-1 analog catalog item for receptor-signaling and cell-culture research themes. Keep language limited to lab and analytical documentation."
+    description: "IGF-1 analog reference material cataloged for controlled receptor-signaling and cell-culture research."
   },
   {
     id: "bpc157",
     name: "BPC157",
-    category: "Recovery & Repair",
+    category: "Cellular Signaling",
     image: "assets/products/bpc157.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 79.50, "10mg": 95.75 },
     stripePrices: { "5mg": "price_1TeRIb082HX8pjNoKGNG1ctz", "10mg": "price_1TeRJ4082HX8pjNo8CDW3Y7f" },
-    description: "Synthetic pentadecapeptide commonly referenced in preclinical literature. Research themes include tissue signaling and inflammatory-pathway models."
+    description: "Synthetic reference compound cataloged for controlled cell-signaling and preclinical laboratory research models."
   },
   {
     id: "tb-500",
     name: "TB-500",
-    category: "Recovery & Repair",
+    category: "Cellular Signaling",
     image: "assets/products/tb-500.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 86.00, "10mg": 105.50 },
     stripePrices: { "5mg": "price_1TeRJS082HX8pjNoPOF1IPdr", "10mg": "price_1TeRKd082HX8pjNoADMiyQLh" },
-    description: "Synthetic fragment associated with thymosin beta-4 research. Often described around cell migration, actin regulation, and repair-model signaling."
+    description: "Synthetic fragment cataloged as a reference material for controlled thymosin beta-4 and cell-signaling research."
   },
   {
     id: "bpc157-tb500",
     name: "BPC157 + TB-500",
-    category: "Recovery & Repair",
+    category: "Cellular Signaling",
     image: "assets/products/bpc157-tb500.jpg",
     sizes: ["5mg/5mg", "10mg/10mg"],
     prices: { "5mg/5mg": 102.25, "10mg/10mg": 138.00 },
     stripePrices: { "5mg/5mg": "price_1TeRQU082HX8pjNolRUxJAfp", "10mg/10mg": "price_1TeRS2082HX8pjNoxC0EQnwB" },
-    description: "Research blend pairing BPC157 and TB-500 for tissue-signaling model work. Composition and lot documentation should be shown clearly."
+    description: "Two-compound reference blend cataloged for controlled cell-signaling model work. Blend composition is listed by vial size."
   },
   {
     id: "semax",
     name: "Semax",
-    category: "Cognitive Support",
+    category: "Neurochemical Research",
     image: "assets/products/semax.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
     stripePrices: { "5mg": "price_1TeRSh082HX8pjNoChr1Vdmx" },
-    description: "Synthetic peptide analog studied in neurochemical and behavioral research models. Copy should avoid cognition, mood, or disease claims."
+    description: "Synthetic reference compound cataloged for controlled neurochemical laboratory research models."
   },
   {
     id: "selank",
     name: "Selank",
-    category: "Cognitive Support",
+    category: "Neurochemical Research",
     image: "assets/products/selank.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
     stripePrices: { "5mg": "price_1TeRT0082HX8pjNoVMvxlAXH" },
-    description: "Synthetic peptide analog used in neurochemical research discussions. Keep descriptions research-only and free of mental-health treatment claims."
+    description: "Synthetic reference compound cataloged for controlled neurochemical laboratory research."
   },
   {
     id: "ss31",
     name: "SS31",
-    category: "Cellular & Mitochondrial Support",
+    category: "Mitochondrial Research",
     image: "assets/products/ss31.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
     stripePrices: { "10mg": "price_1TeRTL082HX8pjNoQ5QHgU4Y" },
-    description: "Mitochondrial-targeted peptide listing for cellular-energy and oxidative-stress research themes. Include purity, lot, and storage notes."
+    description: "Mitochondrial-targeted compound listing for cellular-energy and oxidative-stress research themes. Include purity, lot, and storage notes."
   },
   {
     id: "mots-c",
     name: "MOTS-c",
-    category: "Cellular & Mitochondrial Support",
+    category: "Mitochondrial Research",
     image: "assets/products/mots-c.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
     stripePrices: { "10mg": "price_1TeRTp082HX8pjNo5pPE2PHW" },
-    description: "Mitochondrial-derived peptide commonly organized around metabolic and cellular stress-response research. Avoid fitness or treatment promises."
+    description: "Mitochondrial-derived reference compound cataloged for controlled cellular stress-response research."
   },
   {
     id: "nad",
     name: "NAD+",
-    category: "Cellular & Mitochondrial Support",
+    category: "Mitochondrial Research",
     image: "assets/products/nad.jpg",
     sizes: ["500mg"],
     prices: { "500mg": 108.75 },
@@ -217,17 +217,17 @@ const products = [
   {
     id: "ghk-cu",
     name: "GHK-Cu",
-    category: "Wellness & Beauty",
+    category: "Analytical & Reference Compounds",
     image: "assets/products/ghk-cu.jpg",
     sizes: ["50mg", "100mg"],
     prices: { "50mg": 82.75, "100mg": 92.50 },
     stripePrices: { "50mg": "price_1TeRUs082HX8pjNosMSwDk4e", "100mg": "price_1TeRVV082HX8pjNodODkPPRZ" },
-    description: "Copper-binding tripeptide used in cosmetic and extracellular-matrix research discussions. Avoid anti-aging promises and focus on documentation."
+    description: "Copper-binding reference compound cataloged for controlled extracellular-matrix and analytical research."
   },
   {
     id: "glutathione",
     name: "Glutathione",
-    category: "Wellness & Beauty",
+    category: "Analytical & Reference Compounds",
     image: "assets/products/glutathione.jpg",
     sizes: ["1500mg"],
     prices: { "1500mg": 112.00 },
@@ -237,37 +237,37 @@ const products = [
   {
     id: "melanotan-2",
     name: "Melanotan 2",
-    category: "Wellness & Beauty",
+    category: "Analytical & Reference Compounds",
     image: "assets/products/melanotan-2.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
     stripePrices: { "10mg": "price_1TeRWN082HX8pjNo632EB8fu" },
-    description: "Melanocortin analog catalog item for pigment-pathway research. Do not include tanning, appearance-outcome, or administration guidance."
+    description: "Melanocortin analog reference material cataloged for controlled pigment-pathway laboratory research."
   },
   {
     id: "glow",
     name: "GLOW",
-    category: "Wellness & Beauty",
+    category: "Analytical & Reference Compounds",
     image: "assets/products/glow.jpg",
     sizes: ["70mg"],
     prices: { "70mg": 131.50 },
     stripePrices: { "70mg": "price_1TeRWo082HX8pjNouIEz6kEi" },
-    description: "Beauty-themed blend listing. Show exact blend composition on the final product page before launch and avoid cosmetic result claims."
+    description: "Multi-compound reference blend cataloged for controlled analytical laboratory research."
   },
   {
     id: "klow",
     name: "KLOW",
-    category: "Wellness & Beauty",
+    category: "Analytical & Reference Compounds",
     image: "assets/products/klow.jpg",
     sizes: ["80mg"],
     prices: { "80mg": 138.00 },
     stripePrices: { "80mg": "price_1TeRXC082HX8pjNos0AvZlr3" },
-    description: "Wellness-and-beauty blend listing. Add exact ingredient breakdown before taking live orders and keep language research-oriented."
+    description: "Multi-compound reference blend cataloged for controlled analytical laboratory research."
   },
   {
     id: "bac-water",
     name: "BAC Water",
-    category: "Supplies",
+    category: "Laboratory Supplies",
     image: "assets/products/bac-water.jpg",
     sizes: ["5mL", "10mL"],
     prices: { "5mL": 20.00, "10mL": 30.00 },
@@ -277,11 +277,14 @@ const products = [
 ];
 
 let activeCategory = "all";
+let catalogSearchQuery = "";
 const cart = new Map();
 
 const categoryTabs = document.querySelector("#categoryTabs");
 const categoryList = document.querySelector("#categoryList");
 const catalogCount = document.querySelector("#catalogCount");
+const catalogSearch = document.querySelector("#catalogSearch");
+const catalogSearchClear = document.querySelector("#catalogSearchClear");
 const productGrid = document.querySelector("#productGrid");
 const cartPanel = document.querySelector("#cartPanel");
 const overlay = document.querySelector("#overlay");
@@ -302,11 +305,11 @@ if (!document.querySelector("#verificationGate")) {
     <div class="verification-gate" id="verificationGate" role="dialog" aria-modal="true" aria-labelledby="verificationTitle">
       <div class="verification-backdrop" aria-hidden="true"></div>
       <section class="verification-panel">
-        <img class="verification-logo" src="assets/atomlabs-logo.png" alt="AtomLabs Peptides">
+        <img class="verification-logo" src="assets/atomlabs-research-logo.png" alt="AtomLabs Research">
         <p class="verification-kicker">Research use only</p>
         <h2 id="verificationTitle">Researcher verification</h2>
         <p class="verification-intro">
-          AtomLabs sells research peptides exclusively to qualified researchers and laboratories
+          AtomLabs sells research compounds exclusively to qualified researchers and laboratories
           for in vitro and laboratory use. Please confirm before continuing.
         </p>
         <label class="verification-choice">
@@ -365,20 +368,20 @@ if (!document.querySelector("#updates")) {
   const updatesMarkup = `
     <section class="updates-section" id="updates">
       <div class="updates-copy">
-        <img class="section-logo" src="assets/atomlabs-logo.png" alt="AtomLabs Peptides">
+        <img class="section-logo" src="assets/atomlabs-research-logo.png" alt="AtomLabs Research">
         <p class="eyebrow">AtomLabs updates</p>
         <h2>Be first to hear what is next</h2>
-        <p>Join the AtomLabs email list for upcoming sales, new research catalog additions, restocks, and bulk-order offers.</p>
+        <p>Join the AtomLabs email list for research catalog additions, inventory notices, documentation updates, and bulk-order information.</p>
         <div class="updates-points" aria-label="Member update benefits">
-          <span>Upcoming sales</span><span>New catalog arrivals</span><span>Restock alerts</span>
+          <span>Bulk-order notices</span><span>New catalog arrivals</span><span>Restock alerts</span>
         </div>
       </div>
       <form class="updates-form" id="updatesForm">
         <label>Email address<input required name="updatesEmail" type="email" autocomplete="email" placeholder="name@example.com"></label>
         <fieldset>
           <legend>Send me</legend>
-          <label class="updates-choice"><input checked type="checkbox" name="sales"><span>Sales and bulk-order offers</span></label>
-          <label class="updates-choice"><input checked type="checkbox" name="catalog"><span>New products and restock updates</span></label>
+          <label class="updates-choice"><input checked type="checkbox" name="sales"><span>Bulk-order and account notices</span></label>
+          <label class="updates-choice"><input checked type="checkbox" name="catalog"><span>New compounds and inventory updates</span></label>
         </fieldset>
         <label class="updates-consent"><input required type="checkbox" name="updatesConsent"><span>I agree to receive AtomLabs email updates. I can unsubscribe at any time.</span></label>
         <button class="updates-submit" type="submit">Join AtomLabs updates</button>
@@ -467,7 +470,7 @@ if (!document.querySelector("#standardsFallbackStyles")) {
     .standards-band{padding:clamp(38px,6vw,72px) clamp(18px,4vw,56px);color:#18212b;background:#eff6f5;border-block:1px solid #d9e2e5}
     .research-warning{display:flex;gap:14px;align-items:center;max-width:1040px;margin:0 auto 28px;padding:18px 20px;background:#fffaf0;border:1px solid rgba(197,137,34,.38);border-radius:8px}.research-warning p{margin:0}.research-warning strong{color:#c58922}
     .warning-icon{display:grid;flex:0 0 28px;width:28px;height:28px;place-items:center;color:#f0bb54;border:2px solid currentColor;border-radius:50%;font-weight:900}
-    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"•"}
+    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"â€¢"}
     .standards-metrics{display:grid;grid-template-columns:repeat(3,1fr);max-width:1040px;margin:0 auto;border-top:1px solid #d9e2e5}.standards-metrics div{display:grid;gap:4px;padding:28px 20px 0;text-align:center}.standards-metrics strong{color:#0d7f8f;font-size:clamp(2rem,6vw,3.8rem);line-height:1}.standards-metrics span{color:#65717f;font-size:.78rem;font-weight:800;text-transform:uppercase}
     @media(max-width:620px){.research-warning{align-items:flex-start}.standards-badges{justify-content:flex-start}.standards-metrics{grid-template-columns:1fr}.standards-metrics div{padding-block:22px;border-bottom:1px solid #d9e2e5}}
   `;
@@ -484,7 +487,7 @@ if (!document.querySelector("#contact")) {
         <p>Questions about an order, local fulfillment, or the research catalog? Email AtomLabs and our team will respond as soon as possible.</p>
       </div>
       <div class="contact-actions">
-        <a class="contact-email" href="mailto:atomlabspeptides@gmail.com">atomlabspeptides@gmail.com</a>
+        <a class="contact-email" href="mailto:atomlabsresearch@gmail.com">atomlabsresearch@gmail.com</a>
         <a class="terms-link" href="terms.html">Terms of Service</a>
       </div>
     </section>
@@ -543,8 +546,8 @@ if (!document.querySelector(".shipping-announcement")) {
   siteWatermark.insertAdjacentHTML("afterend", `
     <div class="shipping-announcement">
       <strong>Free shipping on bulk orders</strong>
-      <span>Fast fulfillment from AtomLabs Peptides</span>
-      <a href="#catalog">Shop catalog</a>
+      <span>Fast fulfillment from AtomLabs Research</span>
+      <a href="#catalog">View catalog</a>
     </div>
   `);
 }
@@ -555,7 +558,7 @@ if (!document.querySelector(".bulk-shipping-callout")) {
     <div class="bulk-shipping-callout">
       <strong>Building a bulk order?</strong>
       <span>Receive free shipping plus preferred bulk-order pricing.</span>
-      <a href="mailto:atomlabspeptides@gmail.com?subject=Bulk%20order%20request">Contact us</a>
+      <a href="mailto:atomlabsresearch@gmail.com?subject=Bulk%20order%20request">Contact us</a>
     </div>
   `);
 }
@@ -573,7 +576,7 @@ if (bulkPerk) {
 
 const checkoutNote = document.querySelector(".checkout-note");
 if (checkoutNote) {
-  checkoutNote.textContent = "Same-day Miami-area fulfillment may be available. Bulk orders receive free shipping and can be reviewed for preferred pricing. Returning customers may receive a next-order discount.";
+  checkoutNote.textContent = "Same-day Miami-area fulfillment may be available. Bulk orders receive free shipping and can be reviewed for preferred pricing. Returning qualified research accounts may receive preferred terms.";
 }
 
 if (!document.querySelector("#shippingPromoFallbackStyles")) {
@@ -625,12 +628,12 @@ updatesForm?.addEventListener("submit", (event) => {
   const data = new FormData(updatesForm);
   const email = String(data.get("updatesEmail") || "").trim();
   const interests = [];
-  if (data.get("sales")) interests.push("sales and bulk-order offers");
-  if (data.get("catalog")) interests.push("new products and restock updates");
+  if (data.get("sales")) interests.push("bulk-order and account notices");
+  if (data.get("catalog")) interests.push("new compounds and inventory updates");
   const subject = encodeURIComponent("Join AtomLabs updates");
   const body = encodeURIComponent(`Please add ${email} to AtomLabs updates.\n\nInterests: ${interests.join(", ") || "all updates"}.`);
   updatesStatus.textContent = "Opening your email app to confirm your update request.";
-  window.location.href = `mailto:atomlabspeptides@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:atomlabsresearch@gmail.com?subject=${subject}&body=${body}`;
 });
 const formNote = document.querySelector("#formNote");
 const checkoutButton = checkoutForm.querySelector(".checkout-button");
@@ -665,8 +668,23 @@ function getStartingPrice(product) {
 }
 
 function getProductsForCategory() {
-  if (activeCategory === "all") return products;
-  return products.filter((product) => product.category === activeCategory);
+  const categoryProducts = activeCategory === "all"
+    ? products
+    : products.filter((product) => product.category === activeCategory);
+
+  const query = catalogSearchQuery.trim().toLowerCase();
+  if (!query) return categoryProducts;
+
+  return categoryProducts.filter((product) => {
+    const searchText = [
+      product.name,
+      product.category,
+      product.description,
+      ...product.sizes
+    ].join(" ").toLowerCase();
+
+    return searchText.includes(query);
+  });
 }
 
 function renderCategoryTabs() {
@@ -688,13 +706,14 @@ function renderCategoryTabs() {
 
 function renderProducts() {
   const visibleProducts = getProductsForCategory();
-  catalogCount.textContent = `${visibleProducts.length} item${visibleProducts.length === 1 ? "" : "s"} shown`;
+  const hasSearch = Boolean(catalogSearchQuery.trim());
+  catalogCount.textContent = `${visibleProducts.length} item${visibleProducts.length === 1 ? "" : "s"} shown${hasSearch ? " for your search" : ""}`;
 
-  productGrid.innerHTML = visibleProducts.map((product) => `
+  productGrid.innerHTML = visibleProducts.length ? visibleProducts.map((product) => `
     <article class="product-card">
-      <img class="card-watermark" src="assets/atomlabs-logo.png" alt="">
+      <img class="card-watermark" src="assets/atomlabs-research-logo.png" alt="">
       <div class="product-image-frame ${product.image ? "" : "fallback"}">
-        <img src="${product.image || "assets/atomlabs-logo.png"}" alt="${product.name} product image" loading="lazy" decoding="async">
+        <img src="${product.image || "assets/atomlabs-research-logo.png"}" alt="${product.name} product image" loading="lazy" decoding="async">
       </div>
       <div class="product-top">
         <div>
@@ -722,13 +741,18 @@ function renderProducts() {
         <button class="add-button" type="button" data-product="${product.id}">Add to cart</button>
       </div>
     </article>
-  `).join("");
+  `).join("") : `
+    <div class="catalog-empty">
+      <strong>No matching compounds found</strong>
+      <span>Try a different name, category, size, or clear the current search.</span>
+    </div>
+  `;
 }
 
 function renderCategories() {
   categoryList.innerHTML = categories.map((category) => `
     <article class="blend-card">
-      <img class="card-watermark category-watermark" src="assets/atomlabs-logo.png" alt="">
+      <img class="card-watermark category-watermark" src="assets/atomlabs-research-logo.png" alt="">
       <div class="category-card-top">
         <h3>${category.name}</h3>
         <span>${category.items.length} item${category.items.length === 1 ? "" : "s"}</span>
@@ -764,10 +788,10 @@ function renderCart() {
 
   cartItems.innerHTML = entries.map((item) => `
     <div class="cart-item">
-      <img class="cart-item-logo" src="assets/atomlabs-logo.png" alt="">
+      <img class="cart-item-logo" src="assets/atomlabs-research-logo.png" alt="">
       <div>
         <strong>${item.name}</strong>
-        <p>${item.size} · ${item.category} · ${formatPrice(getDiscountedUnitPrice(item.price, item.quantity))}/ea${getVolumeDiscount(item.quantity) ? ` · ${Math.round(getVolumeDiscount(item.quantity) * 100)}% off` : ""}</p>
+        <p>${item.size} Â· ${item.category} Â· ${formatPrice(getDiscountedUnitPrice(item.price, item.quantity))}/ea${getVolumeDiscount(item.quantity) ? ` Â· ${Math.round(getVolumeDiscount(item.quantity) * 100)}% off` : ""}</p>
       </div>
       <div class="quantity" aria-label="Quantity for ${item.name} ${item.size}">
         <button class="qty-button" type="button" data-action="decrease" data-key="${item.key}" aria-label="Decrease ${item.name}">-</button>
@@ -827,6 +851,20 @@ categoryTabs.addEventListener("click", (event) => {
   if (!button) return;
   activeCategory = button.dataset.category;
   renderCategoryTabs();
+  renderProducts();
+});
+
+catalogSearch.addEventListener("input", () => {
+  catalogSearchQuery = catalogSearch.value;
+  catalogSearchClear.classList.toggle("visible", Boolean(catalogSearchQuery));
+  renderProducts();
+});
+
+catalogSearchClear.addEventListener("click", () => {
+  catalogSearch.value = "";
+  catalogSearchQuery = "";
+  catalogSearchClear.classList.remove("visible");
+  catalogSearch.focus();
   renderProducts();
 });
 
