@@ -29,8 +29,8 @@ const allowedPrices = new Set([
   "price_1TeRWN082HX8pjNo632EB8fu",
   "price_1TeRWo082HX8pjNouIEz6kEi",
   "price_1TeRXC082HX8pjNos0AvZlr3",
-  "price_1TeRXb082HX8pjNoiHdx7Zt9",
-  "price_1TeRY5082HX8pjNoSpW0zVzg"
+  "price_1Texf0082HX8pjNojpzcL51n",
+  "price_1TexfQ082HX8pjNot1YmZpWZ"
 ]);
 
 function getSiteUrl(req) {
@@ -46,7 +46,9 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  if (!process.env.STRIPE_SECRET_KEY) {
+  const secretKey = process.env.STRIPE_SECRET_KEY ? process.env.STRIPE_SECRET_KEY.trim() : "";
+
+  if (!secretKey) {
     return res.status(500).json({ error: "Stripe is not configured yet." });
   }
 
@@ -67,15 +69,11 @@ module.exports = async function handler(req, res) {
   });
 
   try {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const stripe = new Stripe(secretKey);
     const siteUrl = getSiteUrl(req);
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: lineItems,
-      phone_number_collection: { enabled: true },
-      shipping_address_collection: {
-        allowed_countries: ["US"]
-      },
       metadata: {
         source: "atomlabs-peptides-site"
       },
@@ -85,6 +83,7 @@ module.exports = async function handler(req, res) {
 
     return res.status(200).json({ url: session.url });
   } catch (error) {
-    return res.status(400).json({ error: error.message || "Unable to start checkout." });
+    const message = error.raw?.message || error.message || "Unable to start checkout.";
+    return res.status(400).json({ error: message });
   }
 };
