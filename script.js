@@ -508,6 +508,16 @@ if (!document.querySelector("#shippingPromoFallbackStyles")) {
   document.head.appendChild(shippingPromoStyles);
 }
 
+if (!document.querySelector("#volumeOfferFallbackStyles")) {
+  const volumeOfferStyles = document.createElement("style");
+  volumeOfferStyles.id = "volumeOfferFallbackStyles";
+  volumeOfferStyles.textContent = `
+    .volume-offers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.volume-offers-label{grid-column:1/-1;color:#65717f;font-size:.75rem;font-weight:800;text-transform:uppercase}
+    .volume-offers button{display:grid;gap:1px;min-width:0;padding:7px 3px;color:#075665;background:#eff6f5;border:1px solid #cde4df;border-radius:6px;cursor:pointer}.volume-offers button:hover{color:#fff;background:#075665}.volume-offers button strong{font-size:.82rem}.volume-offers button span{font-size:.62rem;font-weight:800}
+  `;
+  document.head.appendChild(volumeOfferStyles);
+}
+
 const verificationGate = document.querySelector("#verificationGate");
 const ageVerification = document.querySelector("#ageVerification");
 const researcherVerification = document.querySelector("#researcherVerification");
@@ -542,6 +552,18 @@ function itemKey(productId, size) {
 
 function formatPrice(value) {
   return money.format(value);
+}
+
+function getVolumeDiscount(quantity) {
+  if (quantity >= 10) return 0.20;
+  if (quantity >= 5) return 0.15;
+  if (quantity >= 3) return 0.10;
+  if (quantity >= 2) return 0.05;
+  return 0;
+}
+
+function getDiscountedUnitPrice(price, quantity) {
+  return Math.round(price * (1 - getVolumeDiscount(quantity)) * 100) / 100;
 }
 
 function getStartingPrice(product) {
@@ -594,6 +616,13 @@ function renderProducts() {
           ${product.sizes.map((size) => `<option value="${size}">${size} - ${formatPrice(product.prices[size])}</option>`).join("")}
         </select>
       </div>
+      <div class="volume-offers" aria-label="Volume discounts for ${product.name}">
+        <span class="volume-offers-label">Buy more, save more</span>
+        <button type="button" data-product="${product.id}" data-quantity="2"><strong>2</strong><span>5% off</span></button>
+        <button type="button" data-product="${product.id}" data-quantity="3"><strong>3+</strong><span>10% off</span></button>
+        <button type="button" data-product="${product.id}" data-quantity="5"><strong>5+</strong><span>15% off</span></button>
+        <button type="button" data-product="${product.id}" data-quantity="10"><strong>10+</strong><span>20% off</span></button>
+      </div>
       <div class="product-actions">
         <span class="price">From ${formatPrice(getStartingPrice(product))}</span>
         <button class="add-button" type="button" data-product="${product.id}">Add to cart</button>
@@ -627,7 +656,9 @@ function setCartOpen(isOpen) {
 function renderCart() {
   const entries = Array.from(cart.values());
   const itemCount = entries.reduce((sum, item) => sum + item.quantity, 0);
-  const subtotalValue = entries.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const originalSubtotalValue = entries.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotalValue = entries.reduce((sum, item) => sum + getDiscountedUnitPrice(item.price, item.quantity) * item.quantity, 0);
+  const savingsValue = originalSubtotalValue - subtotalValue;
   const shippingValue = subtotalValue > 0 ? 0 : 0;
   const totalValue = subtotalValue + shippingValue;
 
@@ -642,7 +673,7 @@ function renderCart() {
       <img class="cart-item-logo" src="assets/atomlabs-logo.png" alt="">
       <div>
         <strong>${item.name}</strong>
-        <p>${item.size} · ${item.category} · ${formatPrice(item.price)}</p>
+        <p>${item.size} · ${item.category} · ${formatPrice(getDiscountedUnitPrice(item.price, item.quantity))}/ea${getVolumeDiscount(item.quantity) ? ` · ${Math.round(getVolumeDiscount(item.quantity) * 100)}% off` : ""}</p>
       </div>
       <div class="quantity" aria-label="Quantity for ${item.name} ${item.size}">
         <button class="qty-button" type="button" data-action="decrease" data-key="${item.key}" aria-label="Decrease ${item.name}">-</button>
@@ -656,11 +687,11 @@ function renderCart() {
     ? "<strong>Order summary</strong><span>Add catalog items to build the order.</span>"
     : `
       <strong>Order summary</strong>
-      <span>${itemCount} item${itemCount === 1 ? "" : "s"} selected. Total: ${formatPrice(totalValue)}.</span>
+      <span>${itemCount} item${itemCount === 1 ? "" : "s"} selected. Total: ${formatPrice(totalValue)}.${savingsValue > 0 ? ` You save ${formatPrice(savingsValue)}.` : ""}</span>
     `;
 }
 
-function addToCart(productId) {
+function addToCart(productId, quantity = 1) {
   const product = products.find((item) => item.id === productId);
   const sizeControl = document.querySelector(`[data-size-for="${productId}"]`);
   const selectedSize = sizeControl ? sizeControl.value : product.sizes[0];
@@ -676,7 +707,7 @@ function addToCart(productId) {
     size: selectedSize,
     price: product.prices[selectedSize],
     stripePriceId,
-    quantity: existing ? existing.quantity + 1 : 1
+    quantity: Math.min(20, existing ? existing.quantity + quantity : quantity)
   });
 
   renderCart();
@@ -687,7 +718,7 @@ function updateQuantity(key, direction) {
   const item = cart.get(key);
   if (!item) return;
 
-  const nextQuantity = direction === "increase" ? item.quantity + 1 : item.quantity - 1;
+  const nextQuantity = direction === "increase" ? Math.min(20, item.quantity + 1) : item.quantity - 1;
   if (nextQuantity <= 0) {
     cart.delete(key);
   } else {
@@ -708,7 +739,7 @@ categoryTabs.addEventListener("click", (event) => {
 productGrid.addEventListener("click", (event) => {
   const button = event.target.closest("[data-product]");
   if (!button) return;
-  addToCart(button.dataset.product);
+  addToCart(button.dataset.product, Number.parseInt(button.dataset.quantity, 10) || 1);
 });
 
 cartItems.addEventListener("click", (event) => {
