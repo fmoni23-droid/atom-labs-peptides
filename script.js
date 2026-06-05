@@ -270,7 +270,7 @@ const products = [
     category: "Supplies",
     image: "assets/products/bac-water.jpg",
     sizes: ["5mL", "10mL"],
-    prices: { "5mL": 66.50, "10mL": 69.75 },
+    prices: { "5mL": 20.00, "10mL": 30.00 },
     stripePrices: { "5mL": "price_1Texf0082HX8pjNojpzcL51n", "10mL": "price_1TexfQ082HX8pjNot1YmZpWZ" },
     description: "Bacteriostatic water supply item for catalog completeness. Include manufacturer, sterility, expiration, and handling documentation."
   }
