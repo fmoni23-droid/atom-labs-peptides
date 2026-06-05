@@ -40,6 +40,14 @@ function getSiteUrl(req) {
   return "http://localhost:3000";
 }
 
+function getVolumeDiscount(quantity) {
+  if (quantity >= 10) return 0.20;
+  if (quantity >= 5) return 0.15;
+  if (quantity >= 3) return 0.10;
+  if (quantity >= 2) return 0.05;
+  return 0;
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -57,7 +65,7 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: "Your cart is empty." });
   }
 
-  const lineItems = items.map((item) => {
+  const checkoutItems = items.map((item) => {
     const price = String(item.priceId || "");
     const quantity = Math.max(1, Math.min(20, Number.parseInt(item.quantity, 10) || 1));
 
@@ -71,6 +79,24 @@ module.exports = async function handler(req, res) {
   try {
     const stripe = new Stripe(secretKey);
     const siteUrl = getSiteUrl(req);
+    const lineItems = await Promise.all(checkoutItems.map(async (item) => {
+      const price = await stripe.prices.retrieve(item.price, { expand: ["product"] });
+      const discount = getVolumeDiscount(item.quantity);
+
+      if (!price.unit_amount || !price.currency || typeof price.product !== "object") {
+        throw new Error("This item cannot use volume pricing.");
+      }
+
+      return {
+        price_data: {
+          currency: price.currency,
+          product: price.product.id,
+          unit_amount: Math.round(price.unit_amount * (1 - discount))
+        },
+        quantity: item.quantity
+      };
+    }));
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: lineItems,
