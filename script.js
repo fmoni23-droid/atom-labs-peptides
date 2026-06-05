@@ -443,7 +443,10 @@ if (!document.querySelector("#contact")) {
         <h2>Contact us</h2>
         <p>Questions about an order, local fulfillment, or the research catalog? Email AtomLabs and our team will respond as soon as possible.</p>
       </div>
-      <a class="contact-email" href="mailto:atomlabspeptides@gmail.com">atomlabspeptides@gmail.com</a>
+      <div class="contact-actions">
+        <a class="contact-email" href="mailto:atomlabspeptides@gmail.com">atomlabspeptides@gmail.com</a>
+        <a class="terms-link" href="terms.html">Terms of Service</a>
+      </div>
     </section>
   `);
 }
@@ -453,10 +456,41 @@ if (!document.querySelector("#contactFallbackStyles")) {
   contactStyles.id = "contactFallbackStyles";
   contactStyles.textContent = `
     .contact-band{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;padding:clamp(38px,6vw,66px) clamp(18px,4vw,56px);color:#18212b;background:#eff6f5;border-top:1px solid #d9e2e5}
-    .contact-band h2{margin:6px 0 10px}.contact-band p:last-child{max-width:680px;margin:0;color:#65717f}.contact-email{padding:14px 18px;color:#fff;background:#075665;border-radius:8px;font-weight:800;overflow-wrap:anywhere}
+    .contact-band h2{margin:6px 0 10px}.contact-band p:last-child{max-width:680px;margin:0;color:#65717f}.contact-email{padding:14px 18px;color:#fff;background:#075665;border-radius:8px;font-weight:800;overflow-wrap:anywhere}.contact-actions{display:grid;gap:10px}.terms-link{padding:10px 14px;color:#075665;border:1px solid #cde4df;border-radius:8px;font-weight:800;text-align:center}
     @media(max-width:920px){.contact-band{grid-template-columns:1fr}}
   `;
   document.head.appendChild(contactStyles);
+}
+
+if (!Array.from(document.querySelectorAll(".nav-links a")).some((link) => link.getAttribute("href") === "terms.html")) {
+  const checkoutNavLink = Array.from(document.querySelectorAll(".nav-links a")).find((link) => link.getAttribute("href") === "#checkout");
+  checkoutNavLink?.insertAdjacentHTML("beforebegin", '<a href="terms.html">Terms</a>');
+}
+
+const liveContactActions = document.querySelector(".contact-actions");
+if (!liveContactActions && document.querySelector(".contact-email")) {
+  const liveContactEmail = document.querySelector(".contact-email");
+  liveContactEmail.insertAdjacentHTML("afterend", '<a class="terms-link" href="terms.html">Terms of Service</a>');
+}
+
+if (!document.querySelector(".terms-acceptance")) {
+  const checkoutSubmitButton = document.querySelector(".checkout-button");
+  checkoutSubmitButton.insertAdjacentHTML("beforebegin", `
+    <label class="terms-acceptance">
+      <input required type="checkbox" name="termsAccepted">
+      <span>I confirm that I am at least 21 years old and agree to the <a href="terms.html" target="_blank" rel="noopener">AtomLabs Terms of Service</a>.</span>
+    </label>
+  `);
+}
+
+if (!document.querySelector("#termsLinkFallbackStyles")) {
+  const termsLinkStyles = document.createElement("style");
+  termsLinkStyles.id = "termsLinkFallbackStyles";
+  termsLinkStyles.textContent = `
+    .contact-actions{display:grid;gap:10px}.terms-link{padding:10px 14px;color:#075665;border:1px solid #cde4df;border-radius:8px;font-weight:800;text-align:center}
+    .terms-acceptance{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:14px;background:#eff6f5;border:1px solid #cde4df;border-radius:8px}.terms-acceptance input{width:20px;min-height:20px;height:20px;margin:1px 0 0;accent-color:#075665}.terms-acceptance a{color:#075665;text-decoration:underline;text-underline-offset:3px}
+  `;
+  document.head.appendChild(termsLinkStyles);
 }
 
 if (!document.querySelector(".shipping-announcement")) {
