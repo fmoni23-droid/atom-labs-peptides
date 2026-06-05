@@ -459,6 +459,55 @@ if (!document.querySelector("#contactFallbackStyles")) {
   document.head.appendChild(contactStyles);
 }
 
+if (!document.querySelector(".shipping-announcement")) {
+  const siteWatermark = document.querySelector(".site-watermark");
+  siteWatermark.insertAdjacentHTML("afterend", `
+    <div class="shipping-announcement">
+      <strong>Free shipping on bulk orders</strong>
+      <span>Fast fulfillment from AtomLabs Peptides</span>
+      <a href="#catalog">Shop catalog</a>
+    </div>
+  `);
+}
+
+if (!document.querySelector(".bulk-shipping-callout")) {
+  const catalogToolbar = document.querySelector(".catalog-toolbar");
+  catalogToolbar.insertAdjacentHTML("afterend", `
+    <div class="bulk-shipping-callout">
+      <strong>Building a bulk order?</strong>
+      <span>Receive free shipping plus preferred bulk-order pricing.</span>
+      <a href="mailto:atomlabspeptides@gmail.com?subject=Bulk%20order%20request">Contact us</a>
+    </div>
+  `);
+}
+
+const standardsShippingBadge = Array.from(document.querySelectorAll(".standards-badges span"))
+  .find((item) => item.textContent.toLowerCase().includes("free"));
+if (standardsShippingBadge) standardsShippingBadge.textContent = "Free shipping on bulk orders";
+
+const bulkPerk = Array.from(document.querySelectorAll(".perk-card"))
+  .find((item) => item.textContent.toLowerCase().includes("bulk order"));
+if (bulkPerk) {
+  bulkPerk.querySelector("h3").textContent = "Free bulk-order shipping";
+  bulkPerk.querySelector("p").textContent = "Bulk orders receive free shipping and can be reviewed for preferred pricing before checkout is finalized.";
+}
+
+const checkoutNote = document.querySelector(".checkout-note");
+if (checkoutNote) {
+  checkoutNote.textContent = "Same-day Miami-area fulfillment may be available. Bulk orders receive free shipping and can be reviewed for preferred pricing. Returning customers may receive a next-order discount.";
+}
+
+if (!document.querySelector("#shippingPromoFallbackStyles")) {
+  const shippingPromoStyles = document.createElement("style");
+  shippingPromoStyles.id = "shippingPromoFallbackStyles";
+  shippingPromoStyles.textContent = `
+    .shipping-announcement{display:flex;min-height:38px;align-items:center;justify-content:center;gap:12px;padding:8px 18px;color:#fff;background:#075665;font-size:.86rem;text-align:center}.shipping-announcement strong{color:#bff2e6}.shipping-announcement a{padding-left:12px;border-left:1px solid rgba(255,255,255,.32);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+    .bulk-shipping-callout{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding:14px 16px;color:#075665;background:#eff6f5;border:1px solid #cde4df;border-radius:8px}.bulk-shipping-callout span{color:#65717f}.bulk-shipping-callout a{margin-left:auto;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+    @media(max-width:620px){.shipping-announcement{flex-wrap:wrap;gap:3px 10px}.shipping-announcement span{display:none}.bulk-shipping-callout{align-items:flex-start;flex-direction:column}.bulk-shipping-callout a{margin-left:0}}
+  `;
+  document.head.appendChild(shippingPromoStyles);
+}
+
 const verificationGate = document.querySelector("#verificationGate");
 const ageVerification = document.querySelector("#ageVerification");
 const researcherVerification = document.querySelector("#researcherVerification");
