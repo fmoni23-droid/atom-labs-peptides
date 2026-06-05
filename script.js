@@ -398,6 +398,67 @@ if (!document.querySelector("#faqFallbackStyles")) {
   document.head.appendChild(faqStyles);
 }
 
+if (!document.querySelector("#standards")) {
+  const trustBand = document.querySelector(".trust-band");
+  trustBand.insertAdjacentHTML("afterend", `
+    <section class="standards-band" id="standards" aria-label="Research and service standards">
+      <div class="research-warning">
+        <span class="warning-icon" aria-hidden="true">!</span>
+        <p><strong>For research only.</strong> Not for human consumption, medical, veterinary, or diagnostic use.</p>
+      </div>
+      <div class="standards-badges" aria-label="Documentation and shipping">
+        <span>Testing documentation</span>
+        <span>COAs available where provided</span>
+        <span>Free delivery on qualifying bulk orders</span>
+      </div>
+      <div class="standards-metrics">
+        <div><strong>20+</strong><span>Catalog compounds</span></div>
+        <div><strong>Fast</strong><span>Order fulfillment</span></div>
+        <div><strong>Miami</strong><span>Local service</span></div>
+      </div>
+    </section>
+  `);
+}
+
+if (!document.querySelector("#standardsFallbackStyles")) {
+  const standardsStyles = document.createElement("style");
+  standardsStyles.id = "standardsFallbackStyles";
+  standardsStyles.textContent = `
+    .standards-band{padding:clamp(38px,6vw,72px) clamp(18px,4vw,56px);color:#18212b;background:#eff6f5;border-block:1px solid #d9e2e5}
+    .research-warning{display:flex;gap:14px;align-items:center;max-width:1040px;margin:0 auto 28px;padding:18px 20px;background:#fffaf0;border:1px solid rgba(197,137,34,.38);border-radius:8px}.research-warning p{margin:0}.research-warning strong{color:#c58922}
+    .warning-icon{display:grid;flex:0 0 28px;width:28px;height:28px;place-items:center;color:#f0bb54;border:2px solid currentColor;border-radius:50%;font-weight:900}
+    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"•"}
+    .standards-metrics{display:grid;grid-template-columns:repeat(3,1fr);max-width:1040px;margin:0 auto;border-top:1px solid #d9e2e5}.standards-metrics div{display:grid;gap:4px;padding:28px 20px 0;text-align:center}.standards-metrics strong{color:#0d7f8f;font-size:clamp(2rem,6vw,3.8rem);line-height:1}.standards-metrics span{color:#65717f;font-size:.78rem;font-weight:800;text-transform:uppercase}
+    @media(max-width:620px){.research-warning{align-items:flex-start}.standards-badges{justify-content:flex-start}.standards-metrics{grid-template-columns:1fr}.standards-metrics div{padding-block:22px;border-bottom:1px solid #d9e2e5}}
+  `;
+  document.head.appendChild(standardsStyles);
+}
+
+if (!document.querySelector("#contact")) {
+  const mainContent = document.querySelector("main");
+  mainContent.insertAdjacentHTML("beforeend", `
+    <section class="contact-band" id="contact">
+      <div>
+        <p class="eyebrow">Customer support</p>
+        <h2>Contact us</h2>
+        <p>Questions about an order, local fulfillment, or the research catalog? Email AtomLabs and our team will respond as soon as possible.</p>
+      </div>
+      <a class="contact-email" href="mailto:atomlabspeptides@gmail.com">atomlabspeptides@gmail.com</a>
+    </section>
+  `);
+}
+
+if (!document.querySelector("#contactFallbackStyles")) {
+  const contactStyles = document.createElement("style");
+  contactStyles.id = "contactFallbackStyles";
+  contactStyles.textContent = `
+    .contact-band{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;padding:clamp(38px,6vw,66px) clamp(18px,4vw,56px);color:#18212b;background:#eff6f5;border-top:1px solid #d9e2e5}
+    .contact-band h2{margin:6px 0 10px}.contact-band p:last-child{max-width:680px;margin:0;color:#65717f}.contact-email{padding:14px 18px;color:#fff;background:#075665;border-radius:8px;font-weight:800;overflow-wrap:anywhere}
+    @media(max-width:920px){.contact-band{grid-template-columns:1fr}}
+  `;
+  document.head.appendChild(contactStyles);
+}
+
 const verificationGate = document.querySelector("#verificationGate");
 const ageVerification = document.querySelector("#ageVerification");
 const researcherVerification = document.querySelector("#researcherVerification");
@@ -665,4 +726,3 @@ renderCategoryTabs();
 renderProducts();
 renderCategories();
 renderCart();
-
