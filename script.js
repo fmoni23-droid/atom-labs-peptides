@@ -359,6 +359,46 @@ if (!document.querySelector("#verificationFallbackStyles")) {
   document.head.appendChild(verificationStyles);
 }
 
+if (!document.querySelector("#updates")) {
+  const faqSection = document.querySelector("#faq");
+  const categoriesSection = document.querySelector("#categories");
+  const updatesMarkup = `
+    <section class="updates-section" id="updates">
+      <div class="updates-copy">
+        <img class="section-logo" src="assets/atomlabs-logo.png" alt="AtomLabs Peptides">
+        <p class="eyebrow">AtomLabs updates</p>
+        <h2>Be first to hear what is next</h2>
+        <p>Join the AtomLabs email list for upcoming sales, new research catalog additions, restocks, and bulk-order offers.</p>
+        <div class="updates-points" aria-label="Member update benefits">
+          <span>Upcoming sales</span><span>New catalog arrivals</span><span>Restock alerts</span>
+        </div>
+      </div>
+      <form class="updates-form" id="updatesForm">
+        <label>Email address<input required name="updatesEmail" type="email" autocomplete="email" placeholder="name@example.com"></label>
+        <fieldset>
+          <legend>Send me</legend>
+          <label class="updates-choice"><input checked type="checkbox" name="sales"><span>Sales and bulk-order offers</span></label>
+          <label class="updates-choice"><input checked type="checkbox" name="catalog"><span>New products and restock updates</span></label>
+        </fieldset>
+        <label class="updates-consent"><input required type="checkbox" name="updatesConsent"><span>I agree to receive AtomLabs email updates. I can unsubscribe at any time.</span></label>
+        <button class="updates-submit" type="submit">Join AtomLabs updates</button>
+        <p class="updates-status" id="updatesStatus" role="status"></p>
+      </form>
+    </section>
+  `;
+  if (faqSection) faqSection.insertAdjacentHTML("beforebegin", updatesMarkup);
+  else categoriesSection?.insertAdjacentHTML("afterend", updatesMarkup);
+}
+
+if (!document.querySelector("#updatesFallbackStyles")) {
+  const updatesStyles = document.createElement("style");
+  updatesStyles.id = "updatesFallbackStyles";
+  updatesStyles.textContent = `
+    .updates-section{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(300px,1.1fr);gap:clamp(30px,6vw,82px);align-items:center;padding:clamp(48px,8vw,94px) clamp(18px,5vw,72px);background:#eff6f5;border-block:1px solid #d9e2e5}.updates-copy h2{max-width:11ch;margin:8px 0 14px;font-size:clamp(2.1rem,5vw,4rem);line-height:1}.updates-copy>p:last-of-type{max-width:600px;color:#65717f}.updates-points{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.updates-points span{padding:8px 11px;color:#075665;background:#fff;border:1px solid #cde4df;border-radius:999px;font-size:.8rem;font-weight:800}.updates-form{display:grid;gap:15px;padding:clamp(20px,4vw,34px);background:#fff;border:1px solid #d9e2e5;border-radius:8px;box-shadow:0 18px 50px rgba(24,33,43,.12)}.updates-form fieldset{display:grid;gap:8px;margin:0;padding:14px;border:1px solid #d9e2e5;border-radius:8px}.updates-form legend{padding:0 6px;color:#65717f;font-size:.82rem;font-weight:800}.updates-choice,.updates-consent{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;color:#18212b;font-size:.88rem}.updates-choice input,.updates-consent input{width:18px;min-height:18px;height:18px;margin:1px 0 0;accent-color:#075665}.updates-submit{min-height:48px;color:#fff;background:#075665;border:0;border-radius:8px;font-weight:900;cursor:pointer}.updates-status{min-height:22px;margin:0;color:#075665;font-size:.88rem;font-weight:800}@media(max-width:920px){.updates-section{grid-template-columns:1fr}}
+  `;
+  document.head.appendChild(updatesStyles);
+}
+
 if (!document.querySelector("#faq")) {
   const checkoutSection = document.querySelector("#checkout");
   checkoutSection.insertAdjacentHTML("beforebegin", `
@@ -467,6 +507,11 @@ if (!Array.from(document.querySelectorAll(".nav-links a")).some((link) => link.g
   checkoutNavLink?.insertAdjacentHTML("beforebegin", '<a href="terms.html">Terms</a>');
 }
 
+if (!Array.from(document.querySelectorAll(".nav-links a")).some((link) => link.getAttribute("href") === "#updates")) {
+  const termsNavLink = Array.from(document.querySelectorAll(".nav-links a")).find((link) => link.getAttribute("href") === "terms.html");
+  termsNavLink?.insertAdjacentHTML("beforebegin", '<a href="#updates">Updates</a>');
+}
+
 const liveContactActions = document.querySelector(".contact-actions");
 if (!liveContactActions && document.querySelector(".contact-email")) {
   const liveContactEmail = document.querySelector(".contact-email");
@@ -572,6 +617,21 @@ document.body.classList.add("verification-locked");
 ageVerification.addEventListener("change", updateVerificationButton);
 researcherVerification.addEventListener("change", updateVerificationButton);
 enterSiteButton.addEventListener("click", dismissVerificationGate);
+const updatesForm = document.querySelector("#updatesForm");
+const updatesStatus = document.querySelector("#updatesStatus");
+
+updatesForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(updatesForm);
+  const email = String(data.get("updatesEmail") || "").trim();
+  const interests = [];
+  if (data.get("sales")) interests.push("sales and bulk-order offers");
+  if (data.get("catalog")) interests.push("new products and restock updates");
+  const subject = encodeURIComponent("Join AtomLabs updates");
+  const body = encodeURIComponent(`Please add ${email} to AtomLabs updates.\n\nInterests: ${interests.join(", ") || "all updates"}.`);
+  updatesStatus.textContent = "Opening your email app to confirm your update request.";
+  window.location.href = `mailto:atomlabspeptides@gmail.com?subject=${subject}&body=${body}`;
+});
 const formNote = document.querySelector("#formNote");
 const checkoutButton = checkoutForm.querySelector(".checkout-button");
 
