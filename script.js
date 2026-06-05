@@ -359,6 +359,45 @@ if (!document.querySelector("#verificationFallbackStyles")) {
   document.head.appendChild(verificationStyles);
 }
 
+if (!document.querySelector("#faq")) {
+  const checkoutSection = document.querySelector("#checkout");
+  checkoutSection.insertAdjacentHTML("beforebegin", `
+    <section class="section faq-section" id="faq">
+      <div class="section-heading">
+        <p class="eyebrow">Frequently asked questions</p>
+        <h2>Orders, shipping, and support</h2>
+        <p>Quick answers about fulfillment, delivery, order changes, and research-use products.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>When will my order ship?</summary><p>Orders are prepared quickly and typically ship the same business day when placed before the daily carrier pickup and inventory is available. Orders placed later, on weekends, or on holidays generally ship the next business day.</p></details>
+        <details class="faq-item"><summary>How long does shipping take?</summary><p>Most U.S. orders arrive within 1 to 3 business days after carrier pickup. Miami-area same-day fulfillment or local delivery may be available in select cases. Carrier delays can occasionally affect delivery estimates.</p></details>
+        <details class="faq-item"><summary>Do you issue refunds?</summary><p>Because research products require careful handling, completed orders are generally final. Contact support promptly if an order arrives damaged, incorrect, or incomplete so the issue can be reviewed and resolved.</p></details>
+        <details class="faq-item"><summary>Can I change or cancel my order after placing it?</summary><p>Contact support immediately. Changes or cancellations may be possible before an order is packed or transferred to the carrier, but they cannot be guaranteed once fulfillment has started.</p></details>
+        <details class="faq-item"><summary>What if my package is missing products or contains the wrong items?</summary><p>Contact support within 48 hours of delivery with your order details and clear photos of the package and its contents. The fulfillment team will review the order and help correct verified issues.</p></details>
+        <details class="faq-item"><summary>What if my package is lost, stolen, or delivered to the wrong address?</summary><p>First check the tracking details and contact the carrier. Then contact AtomLabs support so the shipment can be reviewed. Claims and replacement eligibility depend on the carrier investigation and delivery record.</p></details>
+        <details class="faq-item"><summary>Do you offer package insurance or shipping protection?</summary><p>Available shipping protection options, when offered, will appear during checkout. Carrier claims may be required for packages reported lost or damaged in transit.</p></details>
+        <details class="faq-item"><summary>What if I enter the wrong shipping address at checkout?</summary><p>Contact support immediately with the correct address. Address changes may be possible before fulfillment begins, but AtomLabs cannot guarantee changes or replacements after an order has shipped.</p></details>
+        <details class="faq-item"><summary>Are AtomLabs products intended for human or veterinary use?</summary><p>No. AtomLabs products are sold exclusively for qualified in vitro and laboratory research. They are not intended for human or veterinary use, diagnosis, treatment, or consumption.</p></details>
+      </div>
+    </section>
+  `);
+}
+
+if (!document.querySelector("#faqFallbackStyles")) {
+  const faqStyles = document.createElement("style");
+  faqStyles.id = "faqFallbackStyles";
+  faqStyles.textContent = `
+    .faq-section{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1.28fr);gap:clamp(30px,6vw,90px);align-items:start}
+    .faq-section .section-heading{position:sticky;top:104px;display:block}.faq-section .section-heading h2{margin:8px 0 14px}
+    .faq-list{border-top:1px solid #d9e2e5}.faq-item{border-bottom:1px solid #d9e2e5}
+    .faq-item summary{position:relative;padding:22px 54px 22px 0;color:#18212b;font-size:clamp(1.05rem,2vw,1.28rem);font-weight:800;line-height:1.3;list-style:none;cursor:pointer}
+    .faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:"+";position:absolute;top:50%;right:8px;color:#0d7f8f;font-size:2rem;font-weight:400;transform:translateY(-50%)}.faq-item[open] summary::after{content:"-"}
+    .faq-item p{margin:-6px 54px 22px 0;color:#65717f}
+    @media(max-width:920px){.faq-section{grid-template-columns:1fr}.faq-section .section-heading{position:static}}
+  `;
+  document.head.appendChild(faqStyles);
+}
+
 const verificationGate = document.querySelector("#verificationGate");
 const ageVerification = document.querySelector("#ageVerification");
 const researcherVerification = document.querySelector("#researcherVerification");
@@ -626,3 +665,4 @@ renderCategoryTabs();
 renderProducts();
 renderCategories();
 renderCart();
+
