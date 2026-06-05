@@ -296,6 +296,69 @@ const total = document.querySelector("#total");
 const checkoutJump = document.querySelector("#checkoutJump");
 const checkoutSummary = document.querySelector("#checkoutSummary");
 const checkoutForm = document.querySelector("#checkoutForm");
+
+if (!document.querySelector("#verificationGate")) {
+  document.body.insertAdjacentHTML("afterbegin", `
+    <div class="verification-gate" id="verificationGate" role="dialog" aria-modal="true" aria-labelledby="verificationTitle">
+      <div class="verification-backdrop" aria-hidden="true"></div>
+      <section class="verification-panel">
+        <img class="verification-logo" src="assets/atomlabs-logo.png" alt="AtomLabs Peptides">
+        <p class="verification-kicker">Research use only</p>
+        <h2 id="verificationTitle">Researcher verification</h2>
+        <p class="verification-intro">
+          AtomLabs sells research peptides exclusively to qualified researchers and laboratories
+          for in vitro and laboratory use. Please confirm before continuing.
+        </p>
+        <label class="verification-choice">
+          <input type="checkbox" id="ageVerification">
+          <span>I am at least <strong>21 years of age.</strong></span>
+        </label>
+        <label class="verification-choice">
+          <input type="checkbox" id="researcherVerification">
+          <span>
+            I confirm I am a <strong>qualified researcher</strong> purchasing for
+            <strong>in vitro or laboratory research</strong> only, not for human or veterinary use.
+          </span>
+        </label>
+        <button class="verification-enter" type="button" id="enterSiteButton" disabled>
+          <span>Enter AtomLabs</span><span aria-hidden="true">&rarr;</span>
+        </button>
+        <p class="verification-disclaimer">
+          By proceeding you affirm the statements above are true. Products are not for human or
+          veterinary use, not for use in diagnostic procedures, and have not been evaluated by the
+          U.S. Food and Drug Administration.
+        </p>
+      </section>
+    </div>
+  `);
+}
+
+if (!document.querySelector("#verificationFallbackStyles")) {
+  const verificationStyles = document.createElement("style");
+  verificationStyles.id = "verificationFallbackStyles";
+  verificationStyles.textContent = `
+    body.verification-locked{overflow:hidden}
+    .verification-gate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px}
+    .verification-gate.is-hidden{display:none}
+    .verification-backdrop{position:absolute;inset:0;background:rgba(4,39,48,.78);backdrop-filter:blur(12px)}
+    .verification-panel{position:relative;width:min(620px,100%);max-height:calc(100vh - 48px);overflow:auto;padding:clamp(26px,5vw,46px);background:#fff;border:1px solid #d9e2e5;border-radius:8px;box-shadow:0 28px 90px rgba(3,28,35,.34);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .verification-logo{display:block;width:min(250px,70%);max-height:105px;margin:0 auto 20px;object-fit:contain}
+    .verification-kicker{margin:0 0 4px;color:#0d7f8f;font-size:.78rem;font-weight:800;text-transform:uppercase}
+    .verification-panel h2{margin:0 0 8px;color:#075665;font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.1}
+    .verification-intro,.verification-disclaimer{color:#65717f}
+    .verification-intro{margin:0 0 24px;font-size:1.05rem}
+    .verification-choice{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start;margin-top:14px;padding:18px;color:#34414d;background:#fff;border:1px solid #d9e2e5;border-radius:8px;cursor:pointer}
+    .verification-choice:has(input:checked){border-color:#0d7f8f;background:#eff6f5}
+    .verification-choice input{width:24px;height:24px;margin:1px 0 0;accent-color:#075665;cursor:pointer}
+    .verification-choice strong{color:#075665}
+    .verification-enter{display:flex;width:100%;min-height:56px;align-items:center;justify-content:center;gap:12px;margin-top:24px;border:0;border-radius:8px;color:#fff;background:#075665;font:inherit;font-weight:800;cursor:pointer}
+    .verification-enter:disabled{color:rgba(255,255,255,.8);background:#a9c6cc;cursor:not-allowed}
+    .verification-disclaimer{margin:20px 0 0;font-size:.88rem}
+    @media(max-width:620px){.verification-gate{align-items:end;padding:12px}.verification-panel{max-height:calc(100vh - 24px);padding:24px 20px}.verification-choice{grid-template-columns:24px 1fr;gap:12px;padding:15px;font-size:.94rem}}
+  `;
+  document.head.appendChild(verificationStyles);
+}
+
 const verificationGate = document.querySelector("#verificationGate");
 const ageVerification = document.querySelector("#ageVerification");
 const researcherVerification = document.querySelector("#researcherVerification");
