@@ -296,6 +296,26 @@ const total = document.querySelector("#total");
 const checkoutJump = document.querySelector("#checkoutJump");
 const checkoutSummary = document.querySelector("#checkoutSummary");
 const checkoutForm = document.querySelector("#checkoutForm");
+const verificationGate = document.querySelector("#verificationGate");
+const ageVerification = document.querySelector("#ageVerification");
+const researcherVerification = document.querySelector("#researcherVerification");
+const enterSiteButton = document.querySelector("#enterSiteButton");
+
+function updateVerificationButton() {
+  enterSiteButton.disabled = !(ageVerification.checked && researcherVerification.checked);
+}
+
+function dismissVerificationGate() {
+  if (enterSiteButton.disabled) return;
+  verificationGate.classList.add("is-hidden");
+  document.body.classList.remove("verification-locked");
+}
+
+document.body.classList.add("verification-locked");
+
+ageVerification.addEventListener("change", updateVerificationButton);
+researcherVerification.addEventListener("change", updateVerificationButton);
+enterSiteButton.addEventListener("click", dismissVerificationGate);
 const formNote = document.querySelector("#formNote");
 const checkoutButton = checkoutForm.querySelector(".checkout-button");
 
