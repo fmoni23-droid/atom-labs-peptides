@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AtomLabs Research</title>
+    <link rel="stylesheet" href="styles.css?v=atomlabs-new-photo-fill-20260606">
+  </head>
+  <body>
+    <div class="verification-gate" id="verificationGate" role="dialog" aria-modal="true" aria-labelledby="verificationTitle">
+      <div class="verification-backdrop" aria-hidden="true"></div>
+      <section class="verification-panel">
+        <img class="verification-logo" src="assets/atomlabs-research-logo.png" alt="AtomLabs Research">
+        <p class="verification-kicker">Research use only</p>
+        <h2 id="verificationTitle">Researcher verification</h2>
+        <p class="verification-intro">
+          AtomLabs sells research compounds exclusively to qualified researchers and laboratories
+          for in vitro and laboratory use. Please confirm before continuing.
+        </p>
+
+        <label class="verification-choice">
+          <input type="checkbox" id="ageVerification">
+          <span>I am at least <strong>21 years of age.</strong></span>
+        </label>
+
+        <label class="verification-choice">
+          <input type="checkbox" id="researcherVerification">
+          <span>
+            I confirm I am a <strong>qualified researcher</strong> purchasing for
+            <strong>in vitro or laboratory research</strong> only, not for human or veterinary use.
+          </span>
+        </label>
+
+        <button class="verification-enter" type="button" id="enterSiteButton" disabled>
+          <span>Enter AtomLabs</span>
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+        <p class="verification-disclaimer">
+          By proceeding you affirm the statements above are true. Products are not for human or
+          veterinary use, not for use in diagnostic procedures, and have not been evaluated by the
+          U.S. Food and Drug Administration.
+        </p>
+      </section>
+    </div>
+
+    <div class="site-watermark" aria-hidden="true"></div>
+    <div class="shipping-announcement">
+      <strong>Free shipping on bulk orders</strong>
+      <span>Fast fulfillment from AtomLabs Research</span>
+      <a href="#catalog">View catalog</a>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="AtomLabs Research home">
+        <img class="brand-logo" src="assets/atomlabs-research-logo.png" alt="">
+        <span>AtomLabs Research</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#catalog">Catalog</a>
+        <a href="#perks">Perks</a>
+        <a href="#categories">Categories</a>
+        <a href="#updates">Updates</a>
+        <a href="terms.html">Terms</a>
+        <a href="#checkout">Checkout</a>
+      </nav>
+      <button class="cart-button" type="button" id="cartToggle" aria-expanded="false" aria-controls="cartPanel">
+        <span>Cart</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <img src="assets/atomlabs-research-logo.png" alt="" aria-hidden="true">
+        <div class="hero-copy">
+          <p class="eyebrow">Research compound catalog</p>
+          <h1>Compound catalog, organized for research buyers.</h1>
+          <p>
+            Browse every listed category, choose vial sizes, and build a checkout cart with factual
+            product descriptions. Same-day local fulfillment is available in the Miami area.
+            Access is limited to qualified research purchasers. All materials are for controlled
+            in vitro and laboratory research only.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#catalog">View catalog</a>
+            <a class="secondary-link" href="#facts">Review standards</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-band" id="facts" aria-label="Store standards">
+        <div>
+          <img class="mini-logo" src="assets/atomlabs-research-logo.png" alt="">
+          <strong>Same-day fulfillment</strong>
+          <span>Orders are prepared the same day they are purchased whenever inventory is available.</span>
+        </div>
+        <div>
+          <img class="mini-logo" src="assets/atomlabs-research-logo.png" alt="">
+          <strong>Miami local</strong>
+          <span>AtomLabs is local to the Miami area, with delivery available in select cases.</span>
+        </div>
+        <div>
+          <img class="mini-logo" src="assets/atomlabs-research-logo.png" alt="">
+          <strong>Complimentary BAC water</strong>
+          <span>BAC water can be included with qualifying compound orders at no extra cost.</span>
+        </div>
+      </section>
+
+      <section class="standards-band" id="standards" aria-label="Research and service standards">
+        <div class="research-warning">
+          <span class="warning-icon" aria-hidden="true">!</span>
+          <p><strong>For research only.</strong> Not for human consumption, medical, veterinary, or diagnostic use.</p>
+        </div>
+        <div class="standards-badges" aria-label="Documentation and shipping">
+          <span>Testing documentation</span>
+          <span>COAs available where provided</span>
+          <span>Free shipping on bulk orders</span>
+        </div>
+        <div class="standards-metrics">
+          <div><strong>20+</strong><span>Catalog compounds</span></div>
+          <div><strong>Fast</strong><span>Order fulfillment</span></div>
+          <div><strong>Miami</strong><span>Local service</span></div>
+        </div>
+      </section>
+
+      <section class="section perks-section" id="perks">
+        <div class="section-heading">
+          <p class="eyebrow">Research ordering</p>
+          <h2>Laboratory ordering and fulfillment</h2>
+          <p>Fast fulfillment, flexible local delivery, and preferred terms for returning research accounts and bulk orders.</p>
+        </div>
+        <div class="perk-grid">
+          <article class="perk-card">
+            <img class="mini-logo" src="assets/atomlabs-research-logo.png" alt="">
+            <h3>Same-day availability</h3>
+            <p>Research compounds are prepared the same day they are purchased when stock is on hand.</p>
+          </article>
+          <article class="perk-card">
+            <img class="mini-logo" src="assets/atomlabs-research-logo.png" alt="">
+            <h3>Miami-area delivery</h3>
+            <p>Local delivery may be available in select cases throughout the Miami area.</p>
+          </article>
+          <article class="perk-card">
+            <img class="mini-logo" src="assets/atomlabs-research-logo.png" alt="">
+            <h3>Free bulk-order shipping</h3>
+            <p>Bulk orders receive free shipping and can be reviewed for preferred pricing before checkout is finalized.</p>
+          </article>
+          <article class="perk-card">
+            <img class="mini-logo" src="assets/atomlabs-research-logo.png" alt="">
+            <h3>Returning account benefit</h3>
+            <p>Returning qualified research accounts may receive preferred pricing on a future order.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="catalog">
+        <div class="section-heading">
+          <p class="eyebrow">Catalog</p>
+          <h2>All research compounds and supplies</h2>
+          <p>Select a category, choose a size, and add items to the cart. Descriptions stay concise, factual, and research-only.</p>
+        </div>
+        <div class="catalog-search">
+          <label for="catalogSearch">Search compounds</label>
+          <div class="catalog-search-field">
+            <span class="search-icon" aria-hidden="true"></span>
+            <input id="catalogSearch" type="search" autocomplete="off" placeholder="Search by compound, category, size, or description">
+            <button id="catalogSearchClear" type="button" aria-label="Clear compound search" title="Clear search">&times;</button>
+          </div>
+        </div>
+        <div class="catalog-toolbar" aria-label="Catalog filters">
+          <div class="category-tabs" id="categoryTabs"></div>
+          <span class="catalog-count" id="catalogCount" aria-live="polite"></span>
+        </div>
+        <div class="bulk-shipping-callout">
+          <strong>Building a bulk order?</strong>
+          <span>Receive free shipping plus preferred bulk-order pricing.</span>
+          <a href="mailto:atomlabsresearch@gmail.com?subject=Bulk%20order%20request">Contact us</a>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section class="section section-split" id="categories">
+        <div class="section-heading">
+          <p class="eyebrow">Categories</p>
+          <h2>Research catalog categories</h2>
+          <p>Each category organizes compounds by laboratory research model or reference-material type.</p>
+        </div>
+        <div class="blend-list" id="categoryList"></div>
+      </section>
+
+      <section class="updates-section" id="updates">
+        <div class="updates-copy">
+          <img class="section-logo" src="assets/atomlabs-research-logo.png" alt="AtomLabs Research">
+          <p class="eyebrow">AtomLabs updates</p>
+          <h2>Be first to hear what is next</h2>
+          <p>Join the AtomLabs email list for research catalog additions, inventory notices, documentation updates, and bulk-order information.</p>
+          <div class="updates-points" aria-label="Member update benefits">
+            <span>Bulk-order notices</span>
+            <span>New catalog arrivals</span>
+            <span>Restock alerts</span>
+          </div>
+        </div>
+        <form class="updates-form" id="updatesForm">
+          <label>
+            Email address
+            <input required name="updatesEmail" type="email" autocomplete="email" placeholder="name@example.com">
+          </label>
+          <fieldset>
+            <legend>Send me</legend>
+            <label class="updates-choice"><input checked type="checkbox" name="sales"><span>Bulk-order and account notices</span></label>
+            <label class="updates-choice"><input checked type="checkbox" name="catalog"><span>New compounds and inventory updates</span></label>
+          </fieldset>
+          <label class="updates-consent">
+            <input required type="checkbox" name="updatesConsent">
+            <span>I agree to receive AtomLabs email updates. I can unsubscribe at any time.</span>
+          </label>
+          <button class="updates-submit" type="submit">Join AtomLabs updates</button>
+          <p class="updates-status" id="updatesStatus" role="status"></p>
+        </form>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">Frequently asked questions</p>
+          <h2>Orders, shipping, and support</h2>
+          <p>Quick answers about fulfillment, delivery, order changes, and research-use products.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>When will my order ship?</summary><p>Orders are prepared quickly and typically ship the same business day when placed before the daily carrier pickup and inventory is available. Orders placed later, on weekends, or on holidays generally ship the next business day.</p></details>
+          <details class="faq-item"><summary>How long does shipping take?</summary><p>Most U.S. orders arrive within 1 to 3 business days after carrier pickup. Miami-area same-day fulfillment or local delivery may be available in select cases. Carrier delays can occasionally affect delivery estimates.</p></details>
+          <details class="faq-item"><summary>Do you issue refunds?</summary><p>Because research products require careful handling, completed orders are generally final. Contact support promptly if an order arrives damaged, incorrect, or incomplete so the issue can be reviewed and resolved.</p></details>
+          <details class="faq-item"><summary>Can I change or cancel my order after placing it?</summary><p>Contact support immediately. Changes or cancellations may be possible before an order is packed or transferred to the carrier, but they cannot be guaranteed once fulfillment has started.</p></details>
+          <details class="faq-item"><summary>What if my package is missing products or contains the wrong items?</summary><p>Contact support within 48 hours of delivery with your order details and clear photos of the package and its contents. The fulfillment team will review the order and help correct verified issues.</p></details>
+          <details class="faq-item"><summary>What if my package is lost, stolen, or delivered to the wrong address?</summary><p>First check the tracking details and contact the carrier. Then contact AtomLabs support so the shipment can be reviewed. Claims and replacement eligibility depend on the carrier investigation and delivery record.</p></details>
+          <details class="faq-item"><summary>Do you offer package insurance or shipping protection?</summary><p>Available shipping protection options, when offered, will appear during checkout. Carrier claims may be required for packages reported lost or damaged in transit.</p></details>
+          <details class="faq-item"><summary>What if I enter the wrong shipping address at checkout?</summary><p>Contact support immediately with the correct address. Address changes may be possible before fulfillment begins, but AtomLabs cannot guarantee changes or replacements after an order has shipped.</p></details>
+          <details class="faq-item"><summary>Are AtomLabs products intended for human or veterinary use?</summary><p>No. AtomLabs products are sold exclusively for qualified in vitro and laboratory research. They are not intended for human or veterinary use, diagnosis, treatment, or consumption.</p></details>
+        </div>
+      </section>
+
+      <section class="checkout-section" id="checkout">
+        <div class="checkout-copy">
+          <img class="section-logo" src="assets/atomlabs-research-logo.png" alt="AtomLabs Research">
+          <p class="eyebrow">Checkout</p>
+          <h2>Secure payment flow</h2>
+          <p>
+            Enter shipping and contact details here, then continue to Stripe for secure card collection.
+            Card information is handled by Stripe, not stored on this website.
+          </p>
+        </div>
+        <form class="checkout-form" id="checkoutForm">
+          <div class="order-summary" id="checkoutSummary">
+            <strong>Order summary</strong>
+            <span>Add catalog items to build the order.</span>
+          </div>
+          <div class="form-row">
+            <label>
+              Full name
+              <input required name="name" autocomplete="name" placeholder="Kevin Barletta">
+            </label>
+            <label>
+              Email
+              <input required name="email" type="email" autocomplete="email" placeholder="name@example.com">
+            </label>
+          </div>
+          <label>
+            Shipping address
+            <input required name="address" autocomplete="street-address" placeholder="Street address">
+          </label>
+          <div class="form-row">
+            <label>
+              City
+              <input required name="city" autocomplete="address-level2">
+            </label>
+            <label>
+              State
+              <input required name="state" autocomplete="address-level1" maxlength="2" placeholder="NY">
+            </label>
+            <label>
+              ZIP
+              <input required name="zip" autocomplete="postal-code" inputmode="numeric">
+            </label>
+          </div>
+          <div class="payment-element" aria-label="Secure card entry placeholder">
+            <span>Secure card entry</span>
+            <strong>Hosted by payment processor</strong>
+          </div>
+          <p class="checkout-note">
+            Same-day Miami-area fulfillment may be available. Bulk orders receive free shipping and can be reviewed for preferred pricing. Returning qualified research accounts may receive preferred terms.
+          </p>
+          <label class="terms-acceptance">
+            <input required type="checkbox" name="termsAccepted">
+            <span>I confirm that I am at least 21 years old and agree to the <a href="terms.html" target="_blank" rel="noopener">AtomLabs Terms of Service</a>.</span>
+          </label>
+          <button class="checkout-button" type="submit">Continue to secure checkout</button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+      </section>
+
+      <section class="contact-band" id="contact">
+        <div>
+          <p class="eyebrow">Customer support</p>
+          <h2>Contact us</h2>
+          <p>Questions about an order, local fulfillment, or the research catalog? Email AtomLabs and our team will respond as soon as possible.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="contact-email" href="mailto:atomlabsresearch@gmail.com">atomlabsresearch@gmail.com</a>
+          <a class="terms-link" href="terms.html">Terms of Service</a>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
+      <div class="cart-header">
+        <h2>Your cart</h2>
+        <button class="icon-button" type="button" id="cartClose" aria-label="Close cart">x</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty">Your cart is empty.</div>
+      <div class="cart-footer">
+        <div class="cart-line">
+          <span>Subtotal</span>
+          <strong id="subtotal">$0.00</strong>
+        </div>
+        <div class="cart-line muted">
+          <span>Estimated shipping</span>
+          <span id="shipping">$0.00</span>
+        </div>
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="total">$0.00</strong>
+        </div>
+        <a class="checkout-jump" href="#checkout" id="checkoutJump">Go to checkout</a>
+      </div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js?v=atomlabs-new-photo-fill-20260606"></script>
+  </body>
+</html>
