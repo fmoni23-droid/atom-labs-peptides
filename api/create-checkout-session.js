@@ -101,7 +101,7 @@ module.exports = async function handler(req, res) {
       mode: "payment",
       line_items: lineItems,
       metadata: {
-        source: "atomlabs-peptides-site"
+        source: "atomlabs-research-site"
       },
       success_url: `${siteUrl}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/index.html#checkout`

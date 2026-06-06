@@ -305,7 +305,7 @@ if (!document.querySelector("#verificationGate")) {
     <div class="verification-gate" id="verificationGate" role="dialog" aria-modal="true" aria-labelledby="verificationTitle">
       <div class="verification-backdrop" aria-hidden="true"></div>
       <section class="verification-panel">
-        <img class="verification-logo" src="assets/atomlabs-research-logo.png" alt="AtomLabs Research">
+        <img class="verification-logo" src="atomlabs-research-logo.png" alt="AtomLabs Research">
         <p class="verification-kicker">Research use only</p>
         <h2 id="verificationTitle">Researcher verification</h2>
         <p class="verification-intro">
@@ -368,7 +368,7 @@ if (!document.querySelector("#updates")) {
   const updatesMarkup = `
     <section class="updates-section" id="updates">
       <div class="updates-copy">
-        <img class="section-logo" src="assets/atomlabs-research-logo.png" alt="AtomLabs Research">
+        <img class="section-logo" src="atomlabs-research-logo.png" alt="AtomLabs Research">
         <p class="eyebrow">AtomLabs updates</p>
         <h2>Be first to hear what is next</h2>
         <p>Join the AtomLabs email list for research catalog additions, inventory notices, documentation updates, and bulk-order information.</p>
@@ -470,7 +470,7 @@ if (!document.querySelector("#standardsFallbackStyles")) {
     .standards-band{padding:clamp(38px,6vw,72px) clamp(18px,4vw,56px);color:#18212b;background:#eff6f5;border-block:1px solid #d9e2e5}
     .research-warning{display:flex;gap:14px;align-items:center;max-width:1040px;margin:0 auto 28px;padding:18px 20px;background:#fffaf0;border:1px solid rgba(197,137,34,.38);border-radius:8px}.research-warning p{margin:0}.research-warning strong{color:#c58922}
     .warning-icon{display:grid;flex:0 0 28px;width:28px;height:28px;place-items:center;color:#f0bb54;border:2px solid currentColor;border-radius:50%;font-weight:900}
-    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"â€¢"}
+    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"•"}
     .standards-metrics{display:grid;grid-template-columns:repeat(3,1fr);max-width:1040px;margin:0 auto;border-top:1px solid #d9e2e5}.standards-metrics div{display:grid;gap:4px;padding:28px 20px 0;text-align:center}.standards-metrics strong{color:#0d7f8f;font-size:clamp(2rem,6vw,3.8rem);line-height:1}.standards-metrics span{color:#65717f;font-size:.78rem;font-weight:800;text-transform:uppercase}
     @media(max-width:620px){.research-warning{align-items:flex-start}.standards-badges{justify-content:flex-start}.standards-metrics{grid-template-columns:1fr}.standards-metrics div{padding-block:22px;border-bottom:1px solid #d9e2e5}}
   `;
@@ -711,9 +711,9 @@ function renderProducts() {
 
   productGrid.innerHTML = visibleProducts.length ? visibleProducts.map((product) => `
     <article class="product-card">
-      <img class="card-watermark" src="assets/atomlabs-research-logo.png" alt="">
+      <img class="card-watermark" src="atomlabs-research-logo.png" alt="">
       <div class="product-image-frame ${product.image ? "" : "fallback"}">
-        <img src="${product.image || "assets/atomlabs-research-logo.png"}" alt="${product.name} product image" loading="lazy" decoding="async">
+        <img src="${product.image || "atomlabs-research-logo.png"}" alt="${product.name} product image" loading="lazy" decoding="async">
       </div>
       <div class="product-top">
         <div>
@@ -752,7 +752,7 @@ function renderProducts() {
 function renderCategories() {
   categoryList.innerHTML = categories.map((category) => `
     <article class="blend-card">
-      <img class="card-watermark category-watermark" src="assets/atomlabs-research-logo.png" alt="">
+      <img class="card-watermark category-watermark" src="atomlabs-research-logo.png" alt="">
       <div class="category-card-top">
         <h3>${category.name}</h3>
         <span>${category.items.length} item${category.items.length === 1 ? "" : "s"}</span>
@@ -788,10 +788,10 @@ function renderCart() {
 
   cartItems.innerHTML = entries.map((item) => `
     <div class="cart-item">
-      <img class="cart-item-logo" src="assets/atomlabs-research-logo.png" alt="">
+      <img class="cart-item-logo" src="atomlabs-research-logo.png" alt="">
       <div>
         <strong>${item.name}</strong>
-        <p>${item.size} Â· ${item.category} Â· ${formatPrice(getDiscountedUnitPrice(item.price, item.quantity))}/ea${getVolumeDiscount(item.quantity) ? ` Â· ${Math.round(getVolumeDiscount(item.quantity) * 100)}% off` : ""}</p>
+        <p>${item.size} · ${item.category} · ${formatPrice(getDiscountedUnitPrice(item.price, item.quantity))}/ea${getVolumeDiscount(item.quantity) ? ` · ${Math.round(getVolumeDiscount(item.quantity) * 100)}% off` : ""}</p>
       </div>
       <div class="quantity" aria-label="Quantity for ${item.name} ${item.size}">
         <button class="qty-button" type="button" data-action="decrease" data-key="${item.key}" aria-label="Decrease ${item.name}">-</button>
