@@ -295,6 +295,8 @@ const cartEmpty = document.querySelector("#cartEmpty");
 const cartCount = document.querySelector("#cartCount");
 const subtotal = document.querySelector("#subtotal");
 const shipping = document.querySelector("#shipping");
+const handling = document.querySelector("#handling");
+const processing = document.querySelector("#processing");
 const total = document.querySelector("#total");
 const checkoutJump = document.querySelector("#checkoutJump");
 const checkoutSummary = document.querySelector("#checkoutSummary");
@@ -452,7 +454,7 @@ if (!document.querySelector("#standards")) {
       <div class="standards-badges" aria-label="Documentation and shipping">
         <span>Testing documentation</span>
         <span>COAs available where provided</span>
-        <span>Free delivery on qualifying bulk orders</span>
+        <span>Free shipping on $150+ orders</span>
       </div>
       <div class="standards-metrics">
         <div><strong>20+</strong><span>Catalog compounds</span></div>
@@ -470,7 +472,7 @@ if (!document.querySelector("#standardsFallbackStyles")) {
     .standards-band{padding:clamp(38px,6vw,72px) clamp(18px,4vw,56px);color:#18212b;background:#eff6f5;border-block:1px solid #d9e2e5}
     .research-warning{display:flex;gap:14px;align-items:center;max-width:1040px;margin:0 auto 28px;padding:18px 20px;background:#fffaf0;border:1px solid rgba(197,137,34,.38);border-radius:8px}.research-warning p{margin:0}.research-warning strong{color:#c58922}
     .warning-icon{display:grid;flex:0 0 28px;width:28px;height:28px;place-items:center;color:#f0bb54;border:2px solid currentColor;border-radius:50%;font-weight:900}
-    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"•"}
+    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"â€¢"}
     .standards-metrics{display:grid;grid-template-columns:repeat(3,1fr);max-width:1040px;margin:0 auto;border-top:1px solid #d9e2e5}.standards-metrics div{display:grid;gap:4px;padding:28px 20px 0;text-align:center}.standards-metrics strong{color:#0d7f8f;font-size:clamp(2rem,6vw,3.8rem);line-height:1}.standards-metrics span{color:#65717f;font-size:.78rem;font-weight:800;text-transform:uppercase}
     @media(max-width:620px){.research-warning{align-items:flex-start}.standards-badges{justify-content:flex-start}.standards-metrics{grid-template-columns:1fr}.standards-metrics div{padding-block:22px;border-bottom:1px solid #d9e2e5}}
   `;
@@ -545,7 +547,7 @@ if (!document.querySelector(".shipping-announcement")) {
   const siteWatermark = document.querySelector(".site-watermark");
   siteWatermark.insertAdjacentHTML("afterend", `
     <div class="shipping-announcement">
-      <strong>Free shipping on bulk orders</strong>
+      <strong>Free shipping on $150+ orders</strong>
       <span>Fast fulfillment from AtomLabs Research</span>
       <a href="#catalog">View catalog</a>
     </div>
@@ -555,9 +557,9 @@ if (!document.querySelector(".shipping-announcement")) {
 if (!document.querySelector(".bulk-shipping-callout")) {
   const catalogToolbar = document.querySelector(".catalog-toolbar");
   catalogToolbar.insertAdjacentHTML("afterend", `
-    <div class="bulk-shipping-callout">
-      <strong>Building a bulk order?</strong>
-      <span>Receive free shipping plus preferred bulk-order pricing.</span>
+    <div class="bulk-shipping-callout" style="display: none;">
+      <strong>Cart fees</strong>
+      <span>$10 shipping, $5 handling per vial, and $2 processing per vial. Cart discounts combine across all vials. Shipping is free on orders $150+.</span>
       <a href="mailto:atomlabsresearch@gmail.com?subject=Bulk%20order%20request">Contact us</a>
     </div>
   `);
@@ -565,18 +567,18 @@ if (!document.querySelector(".bulk-shipping-callout")) {
 
 const standardsShippingBadge = Array.from(document.querySelectorAll(".standards-badges span"))
   .find((item) => item.textContent.toLowerCase().includes("free"));
-if (standardsShippingBadge) standardsShippingBadge.textContent = "Free shipping on bulk orders";
+if (standardsShippingBadge) standardsShippingBadge.textContent = "Free shipping on $150+ orders";
 
 const bulkPerk = Array.from(document.querySelectorAll(".perk-card"))
   .find((item) => item.textContent.toLowerCase().includes("bulk order"));
 if (bulkPerk) {
-  bulkPerk.querySelector("h3").textContent = "Free bulk-order shipping";
-  bulkPerk.querySelector("p").textContent = "Bulk orders receive free shipping and can be reviewed for preferred pricing before checkout is finalized.";
+  bulkPerk.querySelector("h3").textContent = "Free $150+ shipping";
+  bulkPerk.querySelector("p").textContent = "Orders of $150 or more receive free shipping and can be reviewed for preferred pricing before checkout is finalized.";
 }
 
 const checkoutNote = document.querySelector(".checkout-note");
 if (checkoutNote) {
-  checkoutNote.textContent = "Same-day Miami-area fulfillment may be available. Bulk orders receive free shipping and can be reviewed for preferred pricing. Returning qualified research accounts may receive preferred terms.";
+  checkoutNote.textContent = "Same-day Miami-area fulfillment may be available. Orders of $150 or more receive free shipping. Returning qualified research accounts may receive preferred terms.";
 }
 
 if (!document.querySelector("#shippingPromoFallbackStyles")) {
@@ -643,6 +645,12 @@ const money = new Intl.NumberFormat("en-US", {
   currency: "USD"
 });
 
+const PRICE_REDUCTION = 17;
+const SHIPPING_FEE = 10;
+const HANDLING_FEE = 5;
+const PROCESSING_FEE = 2;
+const FREE_SHIPPING_SUBTOTAL = 150;
+
 function itemKey(productId, size) {
   return `${productId}__${size}`;
 }
@@ -663,8 +671,40 @@ function getDiscountedUnitPrice(price, quantity) {
   return Math.round(price * (1 - getVolumeDiscount(quantity)) * 100) / 100;
 }
 
+function formatDiscountLabel(discount) {
+  return discount ? `${Math.round(discount * 100)}% off` : "";
+}
+
+function getAdjustedUnitPrice(price) {
+  return Math.max(0, Math.round((price - PRICE_REDUCTION) * 100) / 100);
+}
+
 function getStartingPrice(product) {
-  return product.prices[product.sizes[0]];
+  return getAdjustedUnitPrice(product.prices[product.sizes[0]]);
+}
+
+function getCartTotals(entries) {
+  const itemCount = entries.reduce((sum, item) => sum + item.quantity, 0);
+  const cartDiscount = getVolumeDiscount(itemCount);
+  const originalSubtotalValue = entries.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const discountValue = Math.round(originalSubtotalValue * cartDiscount * 100) / 100;
+  const subtotalValue = originalSubtotalValue - discountValue;
+  const savingsValue = originalSubtotalValue - subtotalValue;
+  const shippingValue = subtotalValue > 0 && subtotalValue < FREE_SHIPPING_SUBTOTAL ? SHIPPING_FEE : 0;
+  const handlingValue = itemCount * HANDLING_FEE;
+  const processingValue = itemCount * PROCESSING_FEE;
+  const totalValue = subtotalValue + shippingValue + handlingValue + processingValue;
+
+  return {
+    itemCount,
+    cartDiscount,
+    subtotalValue,
+    savingsValue,
+    shippingValue,
+    handlingValue,
+    processingValue,
+    totalValue
+  };
 }
 
 function getProductsForCategory() {
@@ -726,7 +766,7 @@ function renderProducts() {
       <div class="size-row">
         <label for="size-${product.id}">Size</label>
         <select id="size-${product.id}" data-size-for="${product.id}">
-          ${product.sizes.map((size) => `<option value="${size}">${size} - ${formatPrice(product.prices[size])}</option>`).join("")}
+          ${product.sizes.map((size) => `<option value="${size}">${size} - ${formatPrice(getAdjustedUnitPrice(product.prices[size]))}</option>`).join("")}
         </select>
       </div>
       <div class="volume-offers" aria-label="Volume discounts for ${product.name}">
@@ -773,17 +813,23 @@ function setCartOpen(isOpen) {
 
 function renderCart() {
   const entries = Array.from(cart.values());
-  const itemCount = entries.reduce((sum, item) => sum + item.quantity, 0);
-  const originalSubtotalValue = entries.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const subtotalValue = entries.reduce((sum, item) => sum + getDiscountedUnitPrice(item.price, item.quantity) * item.quantity, 0);
-  const savingsValue = originalSubtotalValue - subtotalValue;
-  const shippingValue = subtotalValue > 0 ? 0 : 0;
-  const totalValue = subtotalValue + shippingValue;
+  const {
+    itemCount,
+    cartDiscount,
+    subtotalValue,
+    savingsValue,
+    shippingValue,
+    handlingValue,
+    processingValue,
+    totalValue
+  } = getCartTotals(entries);
 
   cartCount.textContent = itemCount;
   cartEmpty.hidden = entries.length > 0;
   subtotal.textContent = formatPrice(subtotalValue);
-  shipping.textContent = entries.length > 0 ? "Free" : "$0.00";
+  shipping.textContent = entries.length > 0 && shippingValue === 0 ? "Free" : formatPrice(shippingValue);
+  if (handling) handling.textContent = formatPrice(handlingValue);
+  if (processing) processing.textContent = formatPrice(processingValue);
   total.textContent = formatPrice(totalValue);
 
   cartItems.innerHTML = entries.map((item) => `
@@ -791,7 +837,7 @@ function renderCart() {
       <img class="cart-item-logo" src="atomlabs-research-logo.png" alt="">
       <div>
         <strong>${item.name}</strong>
-        <p>${item.size} · ${item.category} · ${formatPrice(getDiscountedUnitPrice(item.price, item.quantity))}/ea${getVolumeDiscount(item.quantity) ? ` · ${Math.round(getVolumeDiscount(item.quantity) * 100)}% off` : ""}</p>
+        <p>${item.size} Â· ${item.category} Â· ${formatPrice(item.price)}/ea${cartDiscount ? ` Â· ${formatDiscountLabel(cartDiscount)} applied to cart subtotal` : ""}</p>
       </div>
       <div class="quantity" aria-label="Quantity for ${item.name} ${item.size}">
         <button class="qty-button" type="button" data-action="decrease" data-key="${item.key}" aria-label="Decrease ${item.name}">-</button>
@@ -805,7 +851,7 @@ function renderCart() {
     ? "<strong>Order summary</strong><span>Add catalog items to build the order.</span>"
     : `
       <strong>Order summary</strong>
-      <span>${itemCount} item${itemCount === 1 ? "" : "s"} selected. Total: ${formatPrice(totalValue)}.${savingsValue > 0 ? ` You save ${formatPrice(savingsValue)}.` : ""}</span>
+      <span>${itemCount} item${itemCount === 1 ? "" : "s"} selected.${cartDiscount ? ` Cart discount: ${formatDiscountLabel(cartDiscount)} after subtotal.` : ""} Shipping: ${shippingValue === 0 ? "Free" : formatPrice(shippingValue)}. Handling: ${formatPrice(handlingValue)}. Processing: ${formatPrice(processingValue)}. Total: ${formatPrice(totalValue)}.${savingsValue > 0 ? ` You save ${formatPrice(savingsValue)}.` : ""}</span>
     `;
 }
 
@@ -823,7 +869,7 @@ function addToCart(productId, quantity = 1) {
     name: product.name,
     category: product.category,
     size: selectedSize,
-    price: product.prices[selectedSize],
+    price: getAdjustedUnitPrice(product.prices[selectedSize]),
     stripePriceId,
     quantity: Math.min(20, existing ? existing.quantity + quantity : quantity)
   });
