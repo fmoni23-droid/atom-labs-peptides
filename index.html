@@ -45,7 +45,7 @@
 
     <div class="site-watermark" aria-hidden="true"></div>
     <div class="shipping-announcement">
-      <strong>Free shipping on bulk orders</strong>
+      <strong>Free shipping on $150+ orders</strong>
       <span>Fast fulfillment from AtomLabs Research</span>
       <a href="#catalog">View catalog</a>
     </div>
@@ -113,7 +113,7 @@
         <div class="standards-badges" aria-label="Documentation and shipping">
           <span>Testing documentation</span>
           <span>COAs available where provided</span>
-          <span>Free shipping on bulk orders</span>
+          <span>Free shipping on $150+ orders</span>
         </div>
         <div class="standards-metrics">
           <div><strong>20+</strong><span>Catalog compounds</span></div>
@@ -141,8 +141,8 @@
           </article>
           <article class="perk-card">
             <img class="mini-logo" src="atomlabs-research-logo.png" alt="">
-            <h3>Free bulk-order shipping</h3>
-            <p>Bulk orders receive free shipping and can be reviewed for preferred pricing before checkout is finalized.</p>
+            <h3>Free $150+ shipping</h3>
+            <p>Orders of $150 or more receive free shipping and can be reviewed for preferred pricing before checkout is finalized.</p>
           </article>
           <article class="perk-card">
             <img class="mini-logo" src="atomlabs-research-logo.png" alt="">
@@ -170,9 +170,9 @@
           <div class="category-tabs" id="categoryTabs"></div>
           <span class="catalog-count" id="catalogCount" aria-live="polite"></span>
         </div>
-        <div class="bulk-shipping-callout">
-          <strong>Building a bulk order?</strong>
-          <span>Receive free shipping plus preferred bulk-order pricing.</span>
+        <div class="bulk-shipping-callout" style="display: none;">
+          <strong>Cart fees</strong>
+          <span>$10 shipping, $5 handling per vial, and $2 processing per vial. Cart discounts combine across all vials. Shipping is free on orders $150+.</span>
           <a href="mailto:atomlabsresearch@gmail.com?subject=Bulk%20order%20request">Contact us</a>
         </div>
         <div class="product-grid" id="productGrid"></div>
@@ -285,7 +285,7 @@
             <strong>Hosted by payment processor</strong>
           </div>
           <p class="checkout-note">
-            Same-day Miami-area fulfillment may be available. Bulk orders receive free shipping and can be reviewed for preferred pricing. Returning qualified research accounts may receive preferred terms.
+            Same-day Miami-area fulfillment may be available. Orders of $150 or more receive free shipping. Returning qualified research accounts may receive preferred terms.
           </p>
           <label class="terms-acceptance">
             <input required type="checkbox" name="termsAccepted">
@@ -325,6 +325,14 @@
           <span>Estimated shipping</span>
           <span id="shipping">$0.00</span>
         </div>
+        <div class="cart-line muted">
+          <span>Handling fee</span>
+          <span id="handling">$0.00</span>
+        </div>
+        <div class="cart-line muted">
+          <span>Processing fee</span>
+          <span id="processing">$0.00</span>
+        </div>
         <div class="cart-total">
           <span>Total</span>
           <strong id="total">$0.00</strong>
@@ -334,6 +342,6 @@
     </aside>
     <div class="overlay" id="overlay"></div>
 
-    <script src="script.js?v=atomlabs-new-photo-fill-20260606"></script>
+    <script src="script.js?v=atomlabs-cart-hidden-fees-20260608"></script>
   </body>
 </html>

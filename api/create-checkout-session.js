@@ -1,5 +1,11 @@
 const Stripe = require("stripe");
 
+const PRICE_REDUCTION_CENTS = 1700;
+const SHIPPING_FEE_CENTS = 1000;
+const HANDLING_FEE_CENTS = 500;
+const PROCESSING_FEE_CENTS = 200;
+const FREE_SHIPPING_SUBTOTAL_CENTS = 15000;
+
 const allowedPrices = new Set([
   "price_1TebX7082HX8pjNo8xZBzGET",
   "price_1TebY0082HX8pjNoEWm9gkOs",
@@ -48,6 +54,50 @@ function getVolumeDiscount(quantity) {
   return 0;
 }
 
+function makeFeeLineItem(name, unitAmount, currency) {
+  return {
+    price_data: {
+      currency,
+      product_data: { name },
+      unit_amount: unitAmount
+    },
+    quantity: 1
+  };
+}
+
+function allocateCartDiscount(unitItems, discountRate) {
+  const originalSubtotal = unitItems.reduce((sum, item) => sum + item.unitAmount, 0);
+  const discountTotal = Math.round(originalSubtotal * discountRate);
+  const allocations = unitItems.map((item, index) => {
+    const exactDiscount = item.unitAmount * discountRate;
+    const floorDiscount = Math.floor(exactDiscount);
+
+    return {
+      index,
+      floorDiscount,
+      remainder: exactDiscount - floorDiscount
+    };
+  });
+  let allocated = allocations.reduce((sum, item) => sum + item.floorDiscount, 0);
+  let remaining = discountTotal - allocated;
+
+  allocations
+    .sort((a, b) => b.remainder - a.remainder)
+    .forEach((item) => {
+      if (remaining <= 0) return;
+      item.floorDiscount += 1;
+      remaining -= 1;
+    });
+
+  allocations
+    .sort((a, b) => a.index - b.index)
+    .forEach((item) => {
+      unitItems[item.index].unitAmount = Math.max(0, unitItems[item.index].unitAmount - item.floorDiscount);
+    });
+
+  return originalSubtotal - discountTotal;
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -79,23 +129,58 @@ module.exports = async function handler(req, res) {
   try {
     const stripe = new Stripe(secretKey);
     const siteUrl = getSiteUrl(req);
-    const lineItems = await Promise.all(checkoutItems.map(async (item) => {
+    const itemCount = checkoutItems.reduce((sum, item) => sum + item.quantity, 0);
+    const cartDiscount = getVolumeDiscount(itemCount);
+    const productData = await Promise.all(checkoutItems.map(async (item) => {
       const price = await stripe.prices.retrieve(item.price, { expand: ["product"] });
-      const discount = getVolumeDiscount(item.quantity);
 
       if (!price.unit_amount || !price.currency || typeof price.product !== "object") {
         throw new Error("This item cannot use volume pricing.");
       }
 
       return {
-        price_data: {
-          currency: price.currency,
-          product: price.product.id,
-          unit_amount: Math.round(price.unit_amount * (1 - discount))
-        },
-        quantity: item.quantity
+        currency: price.currency,
+        product: price.product.id,
+        quantity: item.quantity,
+        unitAmount: Math.max(0, price.unit_amount - PRICE_REDUCTION_CENTS)
       };
     }));
+    const currency = productData[0]?.currency || "usd";
+    const unitItems = productData.flatMap((item) => (
+      Array.from({ length: item.quantity }, () => ({
+        currency: item.currency,
+        product: item.product,
+        unitAmount: item.unitAmount
+      }))
+    ));
+    const subtotal = allocateCartDiscount(unitItems, cartDiscount);
+    const groupedItems = Array.from(unitItems.reduce((groups, item) => {
+      const key = `${item.currency}:${item.product}:${item.unitAmount}`;
+      const existing = groups.get(key);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        groups.set(key, { ...item, quantity: 1 });
+      }
+      return groups;
+    }, new Map()).values());
+    const lineItems = groupedItems.map((item) => ({
+      price_data: {
+        currency: item.currency,
+        product: item.product,
+        unit_amount: item.unitAmount
+      },
+      quantity: item.quantity
+    }));
+
+    if (subtotal > 0 && subtotal < FREE_SHIPPING_SUBTOTAL_CENTS) {
+      lineItems.push(makeFeeLineItem("Shipping Fee", SHIPPING_FEE_CENTS, currency));
+    }
+
+    lineItems.push(
+      { ...makeFeeLineItem("Handling Fee", HANDLING_FEE_CENTS, currency), quantity: itemCount },
+      { ...makeFeeLineItem("Processing Fee", PROCESSING_FEE_CENTS, currency), quantity: itemCount }
+    );
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
