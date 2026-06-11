@@ -241,10 +241,10 @@
         <div class="checkout-copy">
           <img class="section-logo" src="atomlabs-research-logo.png" alt="AtomLabs Research">
           <p class="eyebrow">Checkout</p>
-          <h2>Secure payment flow</h2>
+          <h2>Zelle order request</h2>
           <p>
-            Enter shipping and contact details here, then continue to Stripe for secure card collection.
-            Card information is handled by Stripe, not stored on this website.
+            Enter shipping and contact details here, then send the order request. AtomLabs will
+            review the details and confirm Zelle payment instructions before fulfillment.
           </p>
         </div>
         <form class="checkout-form" id="checkoutForm">
@@ -280,9 +280,9 @@
               <input required name="zip" autocomplete="postal-code" inputmode="numeric">
             </label>
           </div>
-          <div class="payment-element" aria-label="Secure card entry placeholder">
-            <span>Secure card entry</span>
-            <strong>Hosted by payment processor</strong>
+          <div class="payment-element" aria-label="Zelle payment instructions">
+            <span>Zelle payment</span>
+            <strong>Send to atomlabsresearch@gmail.com after order confirmation</strong>
           </div>
           <p class="checkout-note">
             Same-day Miami-area fulfillment may be available. Orders of $150 or more receive free shipping. Returning qualified research accounts may receive preferred terms.
@@ -291,7 +291,7 @@
             <input required type="checkbox" name="termsAccepted">
             <span>I confirm that I am at least 21 years old and agree to the <a href="terms.html" target="_blank" rel="noopener">AtomLabs Terms of Service</a>.</span>
           </label>
-          <button class="checkout-button" type="submit">Continue to secure checkout</button>
+          <button class="checkout-button" type="submit">Send Zelle order request</button>
           <p class="form-note" id="formNote" role="status"></p>
         </form>
       </section>
@@ -342,6 +342,6 @@
     </aside>
     <div class="overlay" id="overlay"></div>
 
-    <script src="script.js?v=atomlabs-cart-hidden-fees-20260608"></script>
+    <script src="script.js?v=atomlabs-zelle-checkout-20260611"></script>
   </body>
 </html>

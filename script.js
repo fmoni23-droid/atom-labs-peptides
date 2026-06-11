@@ -51,7 +51,6 @@ const products = [
     image: "assets/products/glp3-rt.jpg",
     sizes: ["10mg", "20mg"],
     prices: { "10mg": 118.50, "20mg": 157.50 },
-    stripePrices: { "10mg": "price_1TebX7082HX8pjNo8xZBzGET", "20mg": "price_1TebY0082HX8pjNoEWm9gkOs" },
     description: "Research reference material cataloged for controlled incretin-pathway studies. Documentation focuses on identity, vial size, lot information, and storage."
   },
   {
@@ -61,7 +60,6 @@ const products = [
     image: "assets/products/glp2-tz.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 112.00, "10mg": 151.00 },
-    stripePrices: { "5mg": "price_1TebYa082HX8pjNoHJRzgAkl", "10mg": "price_1TebZ5082HX8pjNokqGt8eZp" },
     description: "Research reference material cataloged for controlled metabolic-signaling studies, with laboratory documentation and handling information."
   },
   {
@@ -71,7 +69,6 @@ const products = [
     image: "assets/products/glp1-sm.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 105.50 },
-    stripePrices: { "5mg": "price_1TebZu082HX8pjNo8jsNVLGP" },
     description: "Research reference material cataloged for controlled GLP-pathway model work, with vial size, lot, and handling details."
   },
   {
@@ -81,7 +78,6 @@ const products = [
     image: "assets/products/cjc1295-no-dac.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    stripePrices: { "5mg": "price_1TeREt082HX8pjNokl3ghlAY" },
     description: "Synthetic GHRH analog cataloged as a reference material for controlled endocrine-signaling research."
   },
   {
@@ -91,7 +87,6 @@ const products = [
     image: "assets/products/cjc1295-with-dac.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    stripePrices: { "5mg": "price_1TeT1b082HX8pjNov9eMaXiQ" },
     description: "DAC-modified CJC1295 cataloged as a reference material for controlled analog and endocrine-signaling research."
   },
   {
@@ -101,7 +96,6 @@ const products = [
     image: "assets/products/ipamorelin.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    stripePrices: { "5mg": "price_1TeRGq082HX8pjNosOHqtrAE" },
     description: "Synthetic reference compound cataloged for controlled ghrelin-receptor and endocrine-signaling research."
   },
   {
@@ -111,7 +105,6 @@ const products = [
     image: "assets/products/cjc1295-ipamorelin.jpg",
     sizes: ["5mg/5mg"],
     prices: { "5mg/5mg": 112.00 },
-    stripePrices: { "5mg/5mg": "price_1TeRHN082HX8pjNovMm1QuKG" },
     description: "Two-compound reference blend cataloged for controlled endocrine-pathway research. Blend composition is listed by vial size."
   },
   {
@@ -121,7 +114,6 @@ const products = [
     image: "assets/products/tesamorelin.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 118.50 },
-    stripePrices: { "10mg": "price_1TeRHk082HX8pjNoPVd88Ljh" },
     description: "Synthetic GHRH analog listed as a reference material for controlled laboratory research, with handling and vial information."
   },
   {
@@ -131,7 +123,6 @@ const products = [
     image: "assets/products/igf1-lr3.jpg",
     sizes: ["1mg"],
     prices: { "1mg": 118.50 },
-    stripePrices: { "1mg": "price_1TeRI9082HX8pjNoezDJLpw5" },
     description: "IGF-1 analog reference material cataloged for controlled receptor-signaling and cell-culture research."
   },
   {
@@ -141,7 +132,6 @@ const products = [
     image: "assets/products/bpc157.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 79.50, "10mg": 95.75 },
-    stripePrices: { "5mg": "price_1TeRIb082HX8pjNoKGNG1ctz", "10mg": "price_1TeRJ4082HX8pjNo8CDW3Y7f" },
     description: "Synthetic reference compound cataloged for controlled cell-signaling and preclinical laboratory research models."
   },
   {
@@ -151,7 +141,6 @@ const products = [
     image: "assets/products/tb-500.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 86.00, "10mg": 105.50 },
-    stripePrices: { "5mg": "price_1TeRJS082HX8pjNoPOF1IPdr", "10mg": "price_1TeRKd082HX8pjNoADMiyQLh" },
     description: "Synthetic fragment cataloged as a reference material for controlled thymosin beta-4 and cell-signaling research."
   },
   {
@@ -161,7 +150,6 @@ const products = [
     image: "assets/products/bpc157-tb500.jpg",
     sizes: ["5mg/5mg", "10mg/10mg"],
     prices: { "5mg/5mg": 102.25, "10mg/10mg": 138.00 },
-    stripePrices: { "5mg/5mg": "price_1TeRQU082HX8pjNolRUxJAfp", "10mg/10mg": "price_1TeRS2082HX8pjNoxC0EQnwB" },
     description: "Two-compound reference blend cataloged for controlled cell-signaling model work. Blend composition is listed by vial size."
   },
   {
@@ -171,7 +159,6 @@ const products = [
     image: "assets/products/semax.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    stripePrices: { "5mg": "price_1TeRSh082HX8pjNoChr1Vdmx" },
     description: "Synthetic reference compound cataloged for controlled neurochemical laboratory research models."
   },
   {
@@ -181,7 +168,6 @@ const products = [
     image: "assets/products/selank.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    stripePrices: { "5mg": "price_1TeRT0082HX8pjNoVMvxlAXH" },
     description: "Synthetic reference compound cataloged for controlled neurochemical laboratory research."
   },
   {
@@ -191,7 +177,6 @@ const products = [
     image: "assets/products/ss31.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
-    stripePrices: { "10mg": "price_1TeRTL082HX8pjNoQ5QHgU4Y" },
     description: "Mitochondrial-targeted compound listing for cellular-energy and oxidative-stress research themes. Include purity, lot, and storage notes."
   },
   {
@@ -201,7 +186,6 @@ const products = [
     image: "assets/products/mots-c.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
-    stripePrices: { "10mg": "price_1TeRTp082HX8pjNo5pPE2PHW" },
     description: "Mitochondrial-derived reference compound cataloged for controlled cellular stress-response research."
   },
   {
@@ -211,7 +195,6 @@ const products = [
     image: "assets/products/nad.jpg",
     sizes: ["500mg"],
     prices: { "500mg": 108.75 },
-    stripePrices: { "500mg": "price_1TeRUE082HX8pjNo0bZ6LHwY" },
     description: "Nicotinamide adenine dinucleotide listing for cellular metabolism and redox research contexts. Present with clear storage and handling details."
   },
   {
@@ -221,7 +204,6 @@ const products = [
     image: "assets/products/ghk-cu.jpg",
     sizes: ["50mg", "100mg"],
     prices: { "50mg": 82.75, "100mg": 92.50 },
-    stripePrices: { "50mg": "price_1TeRUs082HX8pjNosMSwDk4e", "100mg": "price_1TeRVV082HX8pjNodODkPPRZ" },
     description: "Copper-binding reference compound cataloged for controlled extracellular-matrix and analytical research."
   },
   {
@@ -231,7 +213,6 @@ const products = [
     image: "assets/products/glutathione.jpg",
     sizes: ["1500mg"],
     prices: { "1500mg": 112.00 },
-    stripePrices: { "1500mg": "price_1TeRVn082HX8pjNoijZ4F52s" },
     description: "Antioxidant compound listed for research and lab reference use. Keep copy focused on compound identity, size, storage, and purity."
   },
   {
@@ -241,7 +222,6 @@ const products = [
     image: "assets/products/melanotan-2.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
-    stripePrices: { "10mg": "price_1TeRWN082HX8pjNo632EB8fu" },
     description: "Melanocortin analog reference material cataloged for controlled pigment-pathway laboratory research."
   },
   {
@@ -251,7 +231,6 @@ const products = [
     image: "assets/products/glow.jpg",
     sizes: ["70mg"],
     prices: { "70mg": 131.50 },
-    stripePrices: { "70mg": "price_1TeRWo082HX8pjNouIEz6kEi" },
     description: "Multi-compound reference blend cataloged for controlled analytical laboratory research."
   },
   {
@@ -261,7 +240,6 @@ const products = [
     image: "assets/products/klow.jpg",
     sizes: ["80mg"],
     prices: { "80mg": 138.00 },
-    stripePrices: { "80mg": "price_1TeRXC082HX8pjNos0AvZlr3" },
     description: "Multi-compound reference blend cataloged for controlled analytical laboratory research."
   },
   {
@@ -271,7 +249,6 @@ const products = [
     image: "assets/products/bac-water.jpg",
     sizes: ["5mL", "10mL"],
     prices: { "5mL": 20.00, "10mL": 30.00 },
-    stripePrices: { "5mL": "price_1Texf0082HX8pjNojpzcL51n", "10mL": "price_1TexfQ082HX8pjNot1YmZpWZ" },
     description: "Bacteriostatic water supply item for catalog completeness. Include manufacturer, sterility, expiration, and handling documentation."
   }
 ];
@@ -650,6 +627,8 @@ const SHIPPING_FEE = 10;
 const HANDLING_FEE = 5;
 const PROCESSING_FEE = 2;
 const FREE_SHIPPING_SUBTOTAL = 150;
+const ORDER_EMAIL = "atomlabsresearch@gmail.com";
+const ZELLE_RECIPIENT = "atomlabsresearch@gmail.com";
 
 function itemKey(productId, size) {
   return `${productId}__${size}`;
@@ -683,6 +662,10 @@ function getStartingPrice(product) {
   return getAdjustedUnitPrice(product.prices[product.sizes[0]]);
 }
 
+function formatOrderLine(item) {
+  return `${item.quantity} x ${item.name} ${item.size} - ${formatPrice(item.price)}/ea`;
+}
+
 function getCartTotals(entries) {
   const itemCount = entries.reduce((sum, item) => sum + item.quantity, 0);
   const cartDiscount = getVolumeDiscount(itemCount);
@@ -698,6 +681,7 @@ function getCartTotals(entries) {
   return {
     itemCount,
     cartDiscount,
+    subtotalBeforeDiscountValue: originalSubtotalValue,
     subtotalValue,
     savingsValue,
     shippingValue,
@@ -859,7 +843,6 @@ function addToCart(productId, quantity = 1) {
   const product = products.find((item) => item.id === productId);
   const sizeControl = document.querySelector(`[data-size-for="${productId}"]`);
   const selectedSize = sizeControl ? sizeControl.value : product.sizes[0];
-  const stripePriceId = product.stripePrices ? product.stripePrices[selectedSize] : "";
   const key = itemKey(productId, selectedSize);
   const existing = cart.get(key);
 
@@ -870,7 +853,6 @@ function addToCart(productId, quantity = 1) {
     category: product.category,
     size: selectedSize,
     price: getAdjustedUnitPrice(product.prices[selectedSize]),
-    stripePriceId,
     quantity: Math.min(20, existing ? existing.quantity + quantity : quantity)
   });
 
@@ -940,44 +922,42 @@ checkoutForm.addEventListener("submit", async (event) => {
   }
 
   const entries = Array.from(cart.values());
-  const missingStripeItem = entries.find((item) => !item.stripePriceId);
-  if (missingStripeItem) {
-    formNote.textContent = `${missingStripeItem.name} ${missingStripeItem.size} is not connected to Stripe yet.`;
-    return;
-  }
-
   const formData = new FormData(checkoutForm);
-  const payload = {
-    customer: {
-      name: String(formData.get("name") || ""),
-      email: String(formData.get("email") || "")
-    },
-    items: entries.map((item) => ({
-      priceId: item.stripePriceId,
-      quantity: item.quantity
-    }))
-  };
+  const totals = getCartTotals(entries);
+  const customerName = String(formData.get("name") || "").trim();
+  const customerEmail = String(formData.get("email") || "").trim();
+  const address = String(formData.get("address") || "").trim();
+  const city = String(formData.get("city") || "").trim();
+  const state = String(formData.get("state") || "").trim();
+  const zip = String(formData.get("zip") || "").trim();
+  const discountLine = totals.cartDiscount ? `Cart discount: ${formatDiscountLabel(totals.cartDiscount)} (${formatPrice(totals.savingsValue)} saved)` : "Cart discount: none";
+  const subject = `AtomLabs Zelle order request - ${customerName || "Customer"}`;
+  const body = [
+    "AtomLabs Zelle order request",
+    "",
+    `Customer: ${customerName}`,
+    `Email: ${customerEmail}`,
+    `Shipping address: ${address}, ${city}, ${state} ${zip}`,
+    "",
+    "Items:",
+    ...entries.map(formatOrderLine),
+    "",
+    `Subtotal before cart discount: ${formatPrice(totals.subtotalBeforeDiscountValue)}`,
+    discountLine,
+    `Subtotal after cart discount: ${formatPrice(totals.subtotalValue)}`,
+    `Shipping: ${totals.shippingValue === 0 ? "Free" : formatPrice(totals.shippingValue)}`,
+    `Handling fee: ${formatPrice(totals.handlingValue)}`,
+    `Processing fee: ${formatPrice(totals.processingValue)}`,
+    `Total due by Zelle: ${formatPrice(totals.totalValue)}`,
+    "",
+    `Zelle recipient: ${ZELLE_RECIPIENT}`,
+    "",
+    "I confirm that I am at least 21 years old and agree to the AtomLabs Terms of Service.",
+    "All products are for research use only."
+  ].join("\n");
 
-  checkoutButton.disabled = true;
-  formNote.textContent = "Opening secure Stripe checkout...";
-
-  try {
-    const response = await fetch("/api/create-checkout-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    const data = await response.json();
-
-    if (!response.ok || !data.url) {
-      throw new Error(data.error || "Checkout could not start.");
-    }
-
-    window.location.href = data.url;
-  } catch (error) {
-    formNote.textContent = error.message || "Checkout could not start. Please try again.";
-    checkoutButton.disabled = false;
-  }
+  window.location.href = `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  formNote.textContent = `Your email app should open with the order request. Send Zelle payment to ${ZELLE_RECIPIENT} after AtomLabs confirms the order.`;
 });
 
 renderCategoryTabs();
