@@ -1,44 +1,44 @@
 const categories = [
   {
-    id: "metabolic-signaling",
-    name: "Metabolic Signaling",
-    summary: "Research catalog grouping for incretin-pathway and metabolic-signaling compounds.",
+    id: "weight-management",
+    name: "Weight Management",
+    summary: "GLP-style research products grouped together for easier browsing.",
     items: ["GLP3 RT", "GLP2 TZ", "GLP1 SM"]
   },
   {
-    id: "endocrine-signaling",
-    name: "Endocrine Signaling",
-    summary: "Reference materials organized for controlled endocrine-signaling research models.",
+    id: "growth-hormone-research",
+    name: "Growth Hormone Research",
+    summary: "CJC, Ipamorelin, Tesamorelin, and IGF-style products in one simple section.",
     items: ["CJC1295 No DAC", "CJC1295 With DAC", "Ipamorelin", "CJC1295 No DAC + Ipamorelin", "Tesamorelin", "IGF1-LR3"]
   },
   {
-    id: "cellular-signaling",
-    name: "Cellular Signaling",
-    summary: "Reference materials organized for controlled cellular-signaling research models.",
+    id: "muscle-growth-performance",
+    name: "Muscle Growth & Performance",
+    summary: "Performance-category peptide products grouped for quick comparison.",
     items: ["BPC157", "TB-500", "BPC157 + TB-500"]
   },
   {
-    id: "neurochemical-research",
-    name: "Neurochemical Research",
-    summary: "Reference materials organized for controlled neurochemical research models.",
+    id: "focus-mood-research",
+    name: "Focus & Mood Research",
+    summary: "Semax and Selank products grouped together for easy browsing.",
     items: ["Semax", "Selank"]
   },
   {
-    id: "cellular-mitochondrial",
-    name: "Mitochondrial Research",
-    summary: "Catalog grouping for mitochondrial, cellular-energy, and oxidative-stress research themes.",
+    id: "energy-cellular-support",
+    name: "Energy & Cellular Support",
+    summary: "MOTS-c, SS31, and NAD+ products grouped in the cellular-support section.",
     items: ["SS31", "MOTS-c", "NAD+"]
   },
   {
-    id: "analytical-reference",
-    name: "Analytical & Reference Compounds",
-    summary: "Analytical materials and reference compounds listed for controlled laboratory research.",
+    id: "skin-glow-appearance",
+    name: "Skin, Glow & Appearance",
+    summary: "GHK-Cu, Glutathione, Melanotan 2, GLOW, and KLOW products in one section.",
     items: ["GHK-Cu", "Glutathione", "Melanotan 2", "GLOW", "KLOW"]
   },
   {
     id: "supplies",
-    name: "Laboratory Supplies",
-    summary: "Supporting lab supplies listed separately from research compounds.",
+    name: "Supplies",
+    summary: "Supporting supplies listed separately from vial products.",
     items: ["BAC Water"]
   }
 ];
@@ -47,209 +47,209 @@ const products = [
   {
     id: "glp3-rt",
     name: "GLP3 RT",
-    category: "Metabolic Signaling",
+    category: "Weight Management",
     image: "assets/products/glp3-rt.jpg",
     sizes: ["10mg", "20mg"],
     prices: { "10mg": 118.50, "20mg": 157.50 },
-    description: "Research reference material cataloged for controlled incretin-pathway studies. Documentation focuses on identity, vial size, lot information, and storage."
+    description: "Popular GLP-style vial in the AtomLabs catalog. Final price is shown before shipping."
   },
   {
     id: "glp2-tz",
     name: "GLP2 TZ",
-    category: "Metabolic Signaling",
+    category: "Weight Management",
     image: "assets/products/glp2-tz.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 112.00, "10mg": 151.00 },
-    description: "Research reference material cataloged for controlled metabolic-signaling studies, with laboratory documentation and handling information."
+    description: "GLP-style vial listed with clear sizing, final pricing, and research-use-only details."
   },
   {
     id: "glp1-sm",
     name: "GLP1 SM",
-    category: "Metabolic Signaling",
+    category: "Weight Management",
     image: "assets/products/glp1-sm.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 105.50 },
-    description: "Research reference material cataloged for controlled GLP-pathway model work, with vial size, lot, and handling details."
+    description: "GLP-style vial listed with simple product information and final price shown on the card."
   },
   {
     id: "cjc1295-no-dac",
     name: "CJC1295 No DAC",
-    category: "Endocrine Signaling",
+    category: "Growth Hormone Research",
     image: "assets/products/cjc1295-no-dac.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    description: "Synthetic GHRH analog cataloged as a reference material for controlled endocrine-signaling research."
+    description: "CJC peptide vial listed with final price, vial size, and research-use-only details."
   },
   {
     id: "cjc1295-with-dac",
     name: "CJC1295 With DAC",
-    category: "Endocrine Signaling",
+    category: "Growth Hormone Research",
     image: "assets/products/cjc1295-with-dac.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    description: "DAC-modified CJC1295 cataloged as a reference material for controlled analog and endocrine-signaling research."
+    description: "CJC peptide vial with DAC, listed with clear sizing and final price."
   },
   {
     id: "ipamorelin",
     name: "Ipamorelin",
-    category: "Endocrine Signaling",
+    category: "Growth Hormone Research",
     image: "assets/products/ipamorelin.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    description: "Synthetic reference compound cataloged for controlled ghrelin-receptor and endocrine-signaling research."
+    description: "Peptide vial listed with clean product details, vial size, and final price."
   },
   {
     id: "cjc1295-ipamorelin",
     name: "CJC1295 No DAC + Ipamorelin",
-    category: "Endocrine Signaling",
+    category: "Growth Hormone Research",
     image: "assets/products/cjc1295-ipamorelin.jpg",
     sizes: ["5mg/5mg"],
     prices: { "5mg/5mg": 112.00 },
-    description: "Two-compound reference blend cataloged for controlled endocrine-pathway research. Blend composition is listed by vial size."
+    description: "Two-compound peptide blend with final price shown before shipping."
   },
   {
     id: "tesamorelin",
     name: "Tesamorelin",
-    category: "Endocrine Signaling",
+    category: "Growth Hormone Research",
     image: "assets/products/tesamorelin.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 118.50 },
-    description: "Synthetic GHRH analog listed as a reference material for controlled laboratory research, with handling and vial information."
+    description: "Peptide vial listed with simple sizing, final price, and research-use-only details."
   },
   {
     id: "igf1-lr3",
     name: "IGF1-LR3",
-    category: "Endocrine Signaling",
+    category: "Growth Hormone Research",
     image: "assets/products/igf1-lr3.jpg",
     sizes: ["1mg"],
     prices: { "1mg": 118.50 },
-    description: "IGF-1 analog reference material cataloged for controlled receptor-signaling and cell-culture research."
+    description: "IGF-style vial listed with clear product details and final price."
   },
   {
     id: "bpc157",
     name: "BPC157",
-    category: "Cellular Signaling",
+    category: "Muscle Growth & Performance",
     image: "assets/products/bpc157.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 79.50, "10mg": 95.75 },
-    description: "Synthetic reference compound cataloged for controlled cell-signaling and preclinical laboratory research models."
+    description: "Performance-category peptide vial with final price shown on the card."
   },
   {
     id: "tb-500",
     name: "TB-500",
-    category: "Cellular Signaling",
+    category: "Muscle Growth & Performance",
     image: "assets/products/tb-500.jpg",
     sizes: ["5mg", "10mg"],
     prices: { "5mg": 86.00, "10mg": 105.50 },
-    description: "Synthetic fragment cataloged as a reference material for controlled thymosin beta-4 and cell-signaling research."
+    description: "Performance-category peptide vial listed with clear sizing and final price."
   },
   {
     id: "bpc157-tb500",
     name: "BPC157 + TB-500",
-    category: "Cellular Signaling",
+    category: "Muscle Growth & Performance",
     image: "assets/products/bpc157-tb500.jpg",
     sizes: ["5mg/5mg", "10mg/10mg"],
     prices: { "5mg/5mg": 102.25, "10mg/10mg": 138.00 },
-    description: "Two-compound reference blend cataloged for controlled cell-signaling model work. Blend composition is listed by vial size."
+    description: "Two-compound performance-category blend with final price shown before shipping."
   },
   {
     id: "semax",
     name: "Semax",
-    category: "Neurochemical Research",
+    category: "Focus & Mood Research",
     image: "assets/products/semax.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    description: "Synthetic reference compound cataloged for controlled neurochemical laboratory research models."
+    description: "Peptide vial listed with simple product details and final price."
   },
   {
     id: "selank",
     name: "Selank",
-    category: "Neurochemical Research",
+    category: "Focus & Mood Research",
     image: "assets/products/selank.jpg",
     sizes: ["5mg"],
     prices: { "5mg": 82.75 },
-    description: "Synthetic reference compound cataloged for controlled neurochemical laboratory research."
+    description: "Peptide vial listed with clean sizing, final pricing, and research-use-only details."
   },
   {
     id: "ss31",
     name: "SS31",
-    category: "Mitochondrial Research",
+    category: "Energy & Cellular Support",
     image: "assets/products/ss31.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
-    description: "Mitochondrial-targeted compound listing for cellular-energy and oxidative-stress research themes. Include purity, lot, and storage notes."
+    description: "Cellular-support vial listed with final price, vial size, and research-use-only details."
   },
   {
     id: "mots-c",
     name: "MOTS-c",
-    category: "Mitochondrial Research",
+    category: "Energy & Cellular Support",
     image: "assets/products/mots-c.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
-    description: "Mitochondrial-derived reference compound cataloged for controlled cellular stress-response research."
+    description: "Cellular-support vial listed with clear product details and final price."
   },
   {
     id: "nad",
     name: "NAD+",
-    category: "Mitochondrial Research",
+    category: "Energy & Cellular Support",
     image: "assets/products/nad.jpg",
     sizes: ["500mg"],
     prices: { "500mg": 108.75 },
-    description: "Nicotinamide adenine dinucleotide listing for cellular metabolism and redox research contexts. Present with clear storage and handling details."
+    description: "Cellular-support product listed with final price and research-use-only details."
   },
   {
     id: "ghk-cu",
     name: "GHK-Cu",
-    category: "Analytical & Reference Compounds",
+    category: "Skin, Glow & Appearance",
     image: "assets/products/ghk-cu.jpg",
     sizes: ["50mg", "100mg"],
     prices: { "50mg": 82.75, "100mg": 92.50 },
-    description: "Copper-binding reference compound cataloged for controlled extracellular-matrix and analytical research."
+    description: "Appearance-category vial listed with clear sizing and final price."
   },
   {
     id: "glutathione",
     name: "Glutathione",
-    category: "Analytical & Reference Compounds",
+    category: "Skin, Glow & Appearance",
     image: "assets/products/glutathione.jpg",
     sizes: ["1500mg"],
     prices: { "1500mg": 112.00 },
-    description: "Antioxidant compound listed for research and lab reference use. Keep copy focused on compound identity, size, storage, and purity."
+    description: "Appearance-category vial listed with simple product details and final price."
   },
   {
     id: "melanotan-2",
     name: "Melanotan 2",
-    category: "Analytical & Reference Compounds",
+    category: "Skin, Glow & Appearance",
     image: "assets/products/melanotan-2.jpg",
     sizes: ["10mg"],
     prices: { "10mg": 86.00 },
-    description: "Melanocortin analog reference material cataloged for controlled pigment-pathway laboratory research."
+    description: "Appearance-category vial listed with clear sizing and final price."
   },
   {
     id: "glow",
     name: "GLOW",
-    category: "Analytical & Reference Compounds",
+    category: "Skin, Glow & Appearance",
     image: "assets/products/glow.jpg",
     sizes: ["70mg"],
     prices: { "70mg": 131.50 },
-    description: "Multi-compound reference blend cataloged for controlled analytical laboratory research."
+    description: "Multi-compound appearance blend with final price shown before shipping."
   },
   {
     id: "klow",
     name: "KLOW",
-    category: "Analytical & Reference Compounds",
+    category: "Skin, Glow & Appearance",
     image: "assets/products/klow.jpg",
     sizes: ["80mg"],
     prices: { "80mg": 138.00 },
-    description: "Multi-compound reference blend cataloged for controlled analytical laboratory research."
+    description: "Multi-compound appearance blend with final price shown before shipping."
   },
   {
     id: "bac-water",
     name: "BAC Water",
-    category: "Laboratory Supplies",
+    category: "Supplies",
     image: "assets/products/bac-water.jpg",
     sizes: ["5mL", "10mL"],
     prices: { "5mL": 20.00, "10mL": 30.00 },
-    description: "Bacteriostatic water supply item for catalog completeness. Include manufacturer, sterility, expiration, and handling documentation."
+    description: "Supply item listed separately from vial products, with final price shown before shipping."
   }
 ];
 
@@ -272,12 +272,11 @@ const cartEmpty = document.querySelector("#cartEmpty");
 const cartCount = document.querySelector("#cartCount");
 const subtotal = document.querySelector("#subtotal");
 const shipping = document.querySelector("#shipping");
-const handling = document.querySelector("#handling");
-const processing = document.querySelector("#processing");
 const total = document.querySelector("#total");
 const checkoutJump = document.querySelector("#checkoutJump");
 const checkoutSummary = document.querySelector("#checkoutSummary");
 const checkoutForm = document.querySelector("#checkoutForm");
+const orderConfirmation = document.querySelector("#orderConfirmation");
 
 if (!document.querySelector("#verificationGate")) {
   document.body.insertAdjacentHTML("afterbegin", `
@@ -449,7 +448,7 @@ if (!document.querySelector("#standardsFallbackStyles")) {
     .standards-band{padding:clamp(38px,6vw,72px) clamp(18px,4vw,56px);color:#18212b;background:#eff6f5;border-block:1px solid #d9e2e5}
     .research-warning{display:flex;gap:14px;align-items:center;max-width:1040px;margin:0 auto 28px;padding:18px 20px;background:#fffaf0;border:1px solid rgba(197,137,34,.38);border-radius:8px}.research-warning p{margin:0}.research-warning strong{color:#c58922}
     .warning-icon{display:grid;flex:0 0 28px;width:28px;height:28px;place-items:center;color:#f0bb54;border:2px solid currentColor;border-radius:50%;font-weight:900}
-    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"â€¢"}
+    .standards-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto 32px}.standards-badges span{padding:10px 14px;color:#075665;background:#fff;border:1px solid rgba(13,127,143,.28);border-radius:999px;font-size:.92rem}.standards-badges span::before{margin-right:9px;color:#0d7f8f;content:"•"}
     .standards-metrics{display:grid;grid-template-columns:repeat(3,1fr);max-width:1040px;margin:0 auto;border-top:1px solid #d9e2e5}.standards-metrics div{display:grid;gap:4px;padding:28px 20px 0;text-align:center}.standards-metrics strong{color:#0d7f8f;font-size:clamp(2rem,6vw,3.8rem);line-height:1}.standards-metrics span{color:#65717f;font-size:.78rem;font-weight:800;text-transform:uppercase}
     @media(max-width:620px){.research-warning{align-items:flex-start}.standards-badges{justify-content:flex-start}.standards-metrics{grid-template-columns:1fr}.standards-metrics div{padding-block:22px;border-bottom:1px solid #d9e2e5}}
   `;
@@ -536,7 +535,7 @@ if (!document.querySelector(".bulk-shipping-callout")) {
   catalogToolbar.insertAdjacentHTML("afterend", `
     <div class="bulk-shipping-callout" style="display: none;">
       <strong>Cart fees</strong>
-      <span>$10 shipping, $5 handling per vial, and $2 processing per vial. Cart discounts combine across all vials. Shipping is free on orders $150+.</span>
+      <span>$10 shipping on orders under $150. Shipping is free once your order reaches $150 or more.</span>
       <a href="mailto:atomlabsresearch@gmail.com?subject=Bulk%20order%20request">Contact us</a>
     </div>
   `);
@@ -555,7 +554,7 @@ if (bulkPerk) {
 
 const checkoutNote = document.querySelector(".checkout-note");
 if (checkoutNote) {
-  checkoutNote.textContent = "Same-day Miami-area fulfillment may be available. Orders of $150 or more receive free shipping. Returning qualified research accounts may receive preferred terms.";
+  checkoutNote.textContent = "Same-day Miami-area fulfillment may be available. Orders of $150 or more receive free shipping. Eligible vial orders include a complimentary syringe while supplies are available.";
 }
 
 if (!document.querySelector("#shippingPromoFallbackStyles")) {
@@ -614,6 +613,7 @@ updatesForm?.addEventListener("submit", (event) => {
   updatesStatus.textContent = "Opening your email app to confirm your update request.";
   window.location.href = `mailto:atomlabsresearch@gmail.com?subject=${subject}&body=${body}`;
 });
+
 const formNote = document.querySelector("#formNote");
 const checkoutButton = checkoutForm.querySelector(".checkout-button");
 
@@ -624,11 +624,10 @@ const money = new Intl.NumberFormat("en-US", {
 
 const PRICE_REDUCTION = 17;
 const SHIPPING_FEE = 10;
-const HANDLING_FEE = 5;
-const PROCESSING_FEE = 2;
 const FREE_SHIPPING_SUBTOTAL = 150;
 const ORDER_EMAIL = "atomlabsresearch@gmail.com";
 const ZELLE_RECIPIENT = "atomlabsresearch@gmail.com";
+const ZELLE_NAME = "AtomLabs Research";
 
 function itemKey(productId, size) {
   return `${productId}__${size}`;
@@ -666,6 +665,31 @@ function formatOrderLine(item) {
   return `${item.quantity} x ${item.name} ${item.size} - ${formatPrice(item.price)}/ea`;
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function formatOrderDate(date = new Date()) {
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  });
+}
+
+function createOrderNumber() {
+  return String(Date.now()).slice(-6);
+}
+
+function createOrderEmailHref(subject, body) {
+  return `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 function getCartTotals(entries) {
   const itemCount = entries.reduce((sum, item) => sum + item.quantity, 0);
   const cartDiscount = getVolumeDiscount(itemCount);
@@ -674,9 +698,7 @@ function getCartTotals(entries) {
   const subtotalValue = originalSubtotalValue - discountValue;
   const savingsValue = originalSubtotalValue - subtotalValue;
   const shippingValue = subtotalValue > 0 && subtotalValue < FREE_SHIPPING_SUBTOTAL ? SHIPPING_FEE : 0;
-  const handlingValue = itemCount * HANDLING_FEE;
-  const processingValue = itemCount * PROCESSING_FEE;
-  const totalValue = subtotalValue + shippingValue + handlingValue + processingValue;
+  const totalValue = subtotalValue + shippingValue;
 
   return {
     itemCount,
@@ -685,8 +707,6 @@ function getCartTotals(entries) {
     subtotalValue,
     savingsValue,
     shippingValue,
-    handlingValue,
-    processingValue,
     totalValue
   };
 }
@@ -761,7 +781,7 @@ function renderProducts() {
         <button type="button" data-product="${product.id}" data-quantity="10"><strong>10+</strong><span>20% off</span></button>
       </div>
       <div class="product-actions">
-        <span class="price">From ${formatPrice(getStartingPrice(product))}</span>
+        <span class="price"><small>FINAL PRICE</small>From ${formatPrice(getStartingPrice(product))}</span>
         <button class="add-button" type="button" data-product="${product.id}">Add to cart</button>
       </div>
     </article>
@@ -803,8 +823,6 @@ function renderCart() {
     subtotalValue,
     savingsValue,
     shippingValue,
-    handlingValue,
-    processingValue,
     totalValue
   } = getCartTotals(entries);
 
@@ -812,8 +830,6 @@ function renderCart() {
   cartEmpty.hidden = entries.length > 0;
   subtotal.textContent = formatPrice(subtotalValue);
   shipping.textContent = entries.length > 0 && shippingValue === 0 ? "Free" : formatPrice(shippingValue);
-  if (handling) handling.textContent = formatPrice(handlingValue);
-  if (processing) processing.textContent = formatPrice(processingValue);
   total.textContent = formatPrice(totalValue);
 
   cartItems.innerHTML = entries.map((item) => `
@@ -821,7 +837,7 @@ function renderCart() {
       <img class="cart-item-logo" src="atomlabs-research-logo.png" alt="">
       <div>
         <strong>${item.name}</strong>
-        <p>${item.size} Â· ${item.category} Â· ${formatPrice(item.price)}/ea${cartDiscount ? ` Â· ${formatDiscountLabel(cartDiscount)} applied to cart subtotal` : ""}</p>
+        <p>${item.size} · ${item.category} · ${formatPrice(item.price)}/ea${cartDiscount ? ` · ${formatDiscountLabel(cartDiscount)} applied to cart subtotal` : ""}</p>
       </div>
       <div class="quantity" aria-label="Quantity for ${item.name} ${item.size}">
         <button class="qty-button" type="button" data-action="decrease" data-key="${item.key}" aria-label="Decrease ${item.name}">-</button>
@@ -835,7 +851,7 @@ function renderCart() {
     ? "<strong>Order summary</strong><span>Add catalog items to build the order.</span>"
     : `
       <strong>Order summary</strong>
-      <span>${itemCount} item${itemCount === 1 ? "" : "s"} selected.${cartDiscount ? ` Cart discount: ${formatDiscountLabel(cartDiscount)} after subtotal.` : ""} Shipping: ${shippingValue === 0 ? "Free" : formatPrice(shippingValue)}. Handling: ${formatPrice(handlingValue)}. Processing: ${formatPrice(processingValue)}. Total: ${formatPrice(totalValue)}.${savingsValue > 0 ? ` You save ${formatPrice(savingsValue)}.` : ""}</span>
+      <span>${itemCount} item${itemCount === 1 ? "" : "s"} selected.${cartDiscount ? ` Cart discount: ${formatDiscountLabel(cartDiscount)} after subtotal.` : ""} Shipping: ${shippingValue === 0 ? "Free" : formatPrice(shippingValue)}. Total: ${formatPrice(totalValue)}.${savingsValue > 0 ? ` You save ${formatPrice(savingsValue)}.` : ""}</span>
     `;
 }
 
@@ -924,20 +940,24 @@ checkoutForm.addEventListener("submit", async (event) => {
   const entries = Array.from(cart.values());
   const formData = new FormData(checkoutForm);
   const totals = getCartTotals(entries);
+  const orderNumber = createOrderNumber();
   const customerName = String(formData.get("name") || "").trim();
   const customerEmail = String(formData.get("email") || "").trim();
   const address = String(formData.get("address") || "").trim();
   const city = String(formData.get("city") || "").trim();
   const state = String(formData.get("state") || "").trim();
   const zip = String(formData.get("zip") || "").trim();
+  const fullAddress = `${address}, ${city}, ${state} ${zip}`;
   const discountLine = totals.cartDiscount ? `Cart discount: ${formatDiscountLabel(totals.cartDiscount)} (${formatPrice(totals.savingsValue)} saved)` : "Cart discount: none";
   const subject = `AtomLabs Zelle order request - ${customerName || "Customer"}`;
   const body = [
     "AtomLabs Zelle order request",
     "",
+    `Order number: ${orderNumber}`,
+    `Date: ${formatOrderDate()}`,
     `Customer: ${customerName}`,
     `Email: ${customerEmail}`,
-    `Shipping address: ${address}, ${city}, ${state} ${zip}`,
+    `Shipping address: ${fullAddress}`,
     "",
     "Items:",
     ...entries.map(formatOrderLine),
@@ -946,18 +966,94 @@ checkoutForm.addEventListener("submit", async (event) => {
     discountLine,
     `Subtotal after cart discount: ${formatPrice(totals.subtotalValue)}`,
     `Shipping: ${totals.shippingValue === 0 ? "Free" : formatPrice(totals.shippingValue)}`,
-    `Handling fee: ${formatPrice(totals.handlingValue)}`,
-    `Processing fee: ${formatPrice(totals.processingValue)}`,
     `Total due by Zelle: ${formatPrice(totals.totalValue)}`,
     "",
+    `Zelle name: ${ZELLE_NAME}`,
     `Zelle recipient: ${ZELLE_RECIPIENT}`,
     "",
     "I confirm that I am at least 21 years old and agree to the AtomLabs Terms of Service.",
     "All products are for research use only."
   ].join("\n");
+  const emailHref = createOrderEmailHref(subject, body);
+  const itemRows = entries.map((item) => {
+    const lineTotal = item.price * item.quantity;
+    return `
+      <div class="order-table-row">
+        <span>${escapeHtml(item.name)} - ${escapeHtml(item.size)} x ${item.quantity}</span>
+        <strong>${formatPrice(lineTotal)}</strong>
+      </div>
+    `;
+  }).join("");
+  const addressMarkup = `
+    <strong>${escapeHtml(customerName)}</strong><br>
+    ${escapeHtml(address)}<br>
+    ${escapeHtml(city)}, ${escapeHtml(state)} ${escapeHtml(zip)}<br>
+    ${escapeHtml(customerEmail)}
+  `;
 
-  window.location.href = `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  formNote.textContent = `Your email app should open with the order request. Send Zelle payment to ${ZELLE_RECIPIENT} after AtomLabs confirms the order.`;
+  orderConfirmation.innerHTML = `
+    <div class="confirmation-alert">
+      <span aria-hidden="true">!</span>
+      <strong>Thank you. Your order has been received.</strong>
+    </div>
+    <div class="confirmation-grid" aria-label="Order summary">
+      <div class="confirmation-cell"><span>Order number:</span><strong>${orderNumber}</strong></div>
+      <div class="confirmation-cell"><span>Date:</span><strong>${formatOrderDate()}</strong></div>
+      <div class="confirmation-cell"><span>Email:</span><strong>${escapeHtml(customerEmail)}</strong></div>
+      <div class="confirmation-cell"><span>Total:</span><strong>${formatPrice(totals.totalValue)}</strong></div>
+      <div class="confirmation-cell"><span>Payment method:</span><strong>Pay with Zelle</strong></div>
+      <div class="confirmation-cell"><span>Status:</span><strong>Awaiting Zelle confirmation</strong></div>
+    </div>
+    <section class="zelle-notice">
+      <h3>Zelle Notice</h3>
+      <p>Please send the total amount requested to AtomLabs if you have not yet.</p>
+      <p>Send <strong>${formatPrice(totals.totalValue)}</strong> via Zelle or from your bank.</p>
+      <p>Here are the Zelle details you should know for the transfer:</p>
+      <dl class="zelle-detail-list">
+        <div><dt>Zelle Name:</dt><dd>${ZELLE_NAME}</dd></div>
+        <div><dt>Zelle Email:</dt><dd>${ZELLE_RECIPIENT}</dd></div>
+      </dl>
+      <p>We are checking our systems to confirm that we received payment. If you have not sent the money already, please make sure to do so now.</p>
+      <p>Once confirmed, we will proceed with the shipping and delivery options you chose.</p>
+      <p>Thank you for doing business with AtomLabs Research. You will be updated regarding your order details soon.</p>
+    </section>
+    <section class="order-detail-panel">
+      <h3>Order details</h3>
+      <div class="order-table">
+        <div class="order-table-row header"><span>Product</span><span>Total</span></div>
+        ${itemRows}
+        <div class="order-table-row"><span>Subtotal before discount</span><strong>${formatPrice(totals.subtotalBeforeDiscountValue)}</strong></div>
+        <div class="order-table-row"><span>Cart discount</span><strong>${totals.cartDiscount ? `${formatDiscountLabel(totals.cartDiscount)} - ${formatPrice(totals.savingsValue)}` : "$0.00"}</strong></div>
+        <div class="order-table-row"><span>Subtotal</span><strong>${formatPrice(totals.subtotalValue)}</strong></div>
+        <div class="order-table-row"><span>Shipping</span><strong>${totals.shippingValue === 0 ? "Free shipping" : formatPrice(totals.shippingValue)}</strong></div>
+        <div class="order-table-row total"><span>Total</span><strong>${formatPrice(totals.totalValue)}</strong></div>
+        <div class="order-table-row"><span>Payment method</span><strong>Pay with Zelle</strong></div>
+      </div>
+    </section>
+    <section class="address-panels">
+      <h3>Billing address</h3>
+      <div class="address-grid">
+        <div class="address-box">${addressMarkup}</div>
+        <div class="address-box"><strong>Shipping address</strong><br>${addressMarkup}</div>
+      </div>
+    </section>
+    <div class="confirmation-actions">
+      <a href="${emailHref}">Email order to AtomLabs</a>
+      <button type="button" id="newOrderButton">Start another order</button>
+    </div>
+  `;
+  checkoutForm.hidden = true;
+  orderConfirmation.hidden = false;
+  setCartOpen(false);
+  orderConfirmation.scrollIntoView({ behavior: "smooth", block: "start" });
+  orderConfirmation.querySelector("#newOrderButton")?.addEventListener("click", () => {
+    cart.clear();
+    renderCart();
+    checkoutForm.reset();
+    checkoutForm.hidden = false;
+    orderConfirmation.hidden = true;
+    window.location.hash = "checkout";
+  });
 });
 
 renderCategoryTabs();

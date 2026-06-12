@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AtomLabs Research</title>
-    <link rel="stylesheet" href="styles.css?v=atomlabs-new-photo-fill-20260606">
+    <link rel="stylesheet" href="styles.css?v=atomlabs-separate-coas-real-reviews-20260612">
   </head>
   <body>
     <div class="verification-gate" id="verificationGate" role="dialog" aria-modal="true" aria-labelledby="verificationTitle">
@@ -56,8 +56,7 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#catalog">Catalog</a>
-        <a href="#perks">Perks</a>
-        <a href="#categories">Categories</a>
+        <a href="coas.html">COAs</a>
         <a href="#updates">Updates</a>
         <a href="terms.html">Terms</a>
         <a href="#checkout">Checkout</a>
@@ -72,16 +71,16 @@
       <section class="hero">
         <img src="atomlabs-research-logo.png" alt="" aria-hidden="true">
         <div class="hero-copy">
-          <p class="eyebrow">Research compound catalog</p>
-          <h1>Compound catalog, organized for research buyers.</h1>
+          <p class="eyebrow">AtomLabs peptide catalog</p>
+          <h1>Peptides, vials, and supplies in one simple catalog.</h1>
           <p>
-            Browse every listed category, choose vial sizes, and build a checkout cart with factual
-            product descriptions. Same-day local fulfillment is available in the Miami area.
-            Access is limited to qualified research purchasers. All materials are for controlled
-            in vitro and laboratory research only.
+            Browse AtomLabs products, see the final vial price up front, choose your size,
+            and build a cart in a few clicks. Orders over $150 ship free, and every eligible
+            vial order includes a complimentary syringe. Products are for research use only.
           </p>
           <div class="hero-actions">
             <a class="primary-link" href="#catalog">View catalog</a>
+            <a class="secondary-link" href="coas.html">View COA papers</a>
             <a class="secondary-link" href="#facts">Review standards</a>
           </div>
         </div>
@@ -100,8 +99,8 @@
         </div>
         <div>
           <img class="mini-logo" src="atomlabs-research-logo.png" alt="">
-          <strong>Complimentary BAC water</strong>
-          <span>BAC water can be included with qualifying compound orders at no extra cost.</span>
+          <strong>Complimentary syringe</strong>
+          <span>Every eligible vial order includes a complimentary syringe while supplies are available.</span>
         </div>
       </section>
 
@@ -113,6 +112,7 @@
         <div class="standards-badges" aria-label="Documentation and shipping">
           <span>Testing documentation</span>
           <span>COAs available where provided</span>
+          <span>Complimentary syringe with vial orders</span>
           <span>Free shipping on $150+ orders</span>
         </div>
         <div class="standards-metrics">
@@ -122,11 +122,33 @@
         </div>
       </section>
 
+      <section class="section reviews-section" id="reviews" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Reviews</p>
+          <h2>Customer reviews</h2>
+          <p>Real customer review screenshots will be posted here after completed orders.</p>
+        </div>
+        <div class="review-gallery">
+          <div class="review-placeholder">
+            <strong>Reviews coming soon</strong>
+            <span>Verified customer screenshots will appear here.</span>
+          </div>
+          <div class="review-placeholder">
+            <strong>Reviews coming soon</strong>
+            <span>Verified customer screenshots will appear here.</span>
+          </div>
+          <div class="review-placeholder">
+            <strong>Reviews coming soon</strong>
+            <span>Verified customer screenshots will appear here.</span>
+          </div>
+        </div>
+      </section>
+
       <section class="section perks-section" id="perks">
         <div class="section-heading">
-          <p class="eyebrow">Research ordering</p>
-          <h2>Laboratory ordering and fulfillment</h2>
-          <p>Fast fulfillment, flexible local delivery, and preferred terms for returning research accounts and bulk orders.</p>
+          <p class="eyebrow">Ordering perks</p>
+          <h2>Straightforward ordering and fulfillment</h2>
+          <p>Simple product choices, quick support, and free shipping once the cart reaches $150.</p>
         </div>
         <div class="perk-grid">
           <article class="perk-card">
@@ -141,8 +163,8 @@
           </article>
           <article class="perk-card">
             <img class="mini-logo" src="atomlabs-research-logo.png" alt="">
-            <h3>Free $150+ shipping</h3>
-            <p>Orders of $150 or more receive free shipping and can be reviewed for preferred pricing before checkout is finalized.</p>
+            <h3>Complimentary syringe</h3>
+            <p>Eligible vial orders include a complimentary syringe while supplies are available.</p>
           </article>
           <article class="perk-card">
             <img class="mini-logo" src="atomlabs-research-logo.png" alt="">
@@ -155,8 +177,8 @@
       <section class="section" id="catalog">
         <div class="section-heading">
           <p class="eyebrow">Catalog</p>
-          <h2>All research compounds and supplies</h2>
-          <p>Select a category, choose a size, and add items to the cart. Descriptions stay concise, factual, and research-only.</p>
+          <h2>All vials and supplies</h2>
+          <p>Select a category, choose a size, and add items to the cart. Every card shows the final vial price before shipping.</p>
         </div>
         <div class="catalog-search">
           <label for="catalogSearch">Search compounds</label>
@@ -171,8 +193,8 @@
           <span class="catalog-count" id="catalogCount" aria-live="polite"></span>
         </div>
         <div class="bulk-shipping-callout" style="display: none;">
-          <strong>Cart fees</strong>
-          <span>$10 shipping, $5 handling per vial, and $2 processing per vial. Cart discounts combine across all vials. Shipping is free on orders $150+.</span>
+          <strong>Shipping</strong>
+          <span>$10 shipping on orders under $150. Shipping is free once your order reaches $150 or more.</span>
           <a href="mailto:atomlabsresearch@gmail.com?subject=Bulk%20order%20request">Contact us</a>
         </div>
         <div class="product-grid" id="productGrid"></div>
@@ -181,8 +203,8 @@
       <section class="section section-split" id="categories">
         <div class="section-heading">
           <p class="eyebrow">Categories</p>
-          <h2>Research catalog categories</h2>
-          <p>Each category organizes compounds by laboratory research model or reference-material type.</p>
+          <h2>Shop by category</h2>
+          <p>Products are grouped by the way most buyers browse the catalog, with research-use-only details kept clear.</p>
         </div>
         <div class="blend-list" id="categoryList"></div>
       </section>
@@ -285,7 +307,7 @@
             <strong>Send to atomlabsresearch@gmail.com after order confirmation</strong>
           </div>
           <p class="checkout-note">
-            Same-day Miami-area fulfillment may be available. Orders of $150 or more receive free shipping. Returning qualified research accounts may receive preferred terms.
+            Same-day Miami-area fulfillment may be available. Orders of $150 or more receive free shipping. Eligible vial orders include a complimentary syringe while supplies are available.
           </p>
           <label class="terms-acceptance">
             <input required type="checkbox" name="termsAccepted">
@@ -294,6 +316,7 @@
           <button class="checkout-button" type="submit">Send Zelle order request</button>
           <p class="form-note" id="formNote" role="status"></p>
         </form>
+        <section class="order-confirmation" id="orderConfirmation" hidden aria-live="polite"></section>
       </section>
 
       <section class="contact-band" id="contact">
@@ -325,14 +348,6 @@
           <span>Estimated shipping</span>
           <span id="shipping">$0.00</span>
         </div>
-        <div class="cart-line muted">
-          <span>Handling fee</span>
-          <span id="handling">$0.00</span>
-        </div>
-        <div class="cart-line muted">
-          <span>Processing fee</span>
-          <span id="processing">$0.00</span>
-        </div>
         <div class="cart-total">
           <span>Total</span>
           <strong id="total">$0.00</strong>
@@ -342,6 +357,6 @@
     </aside>
     <div class="overlay" id="overlay"></div>
 
-    <script src="script.js?v=atomlabs-zelle-checkout-20260611"></script>
+    <script src="script.js?v=atomlabs-review-gallery-coas-20260612"></script>
   </body>
 </html>
